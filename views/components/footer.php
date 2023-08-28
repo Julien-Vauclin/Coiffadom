@@ -1,0 +1,10 @@
+<footer>
+    <p>Ceci est mon footer</p>
+</footer>
+<!-- Link Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<!-- Link Script -->
+<script src="../../assets/script/script.js"></script>
+</body>
+
+</html>
