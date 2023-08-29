@@ -30,3 +30,7 @@ body{
 .rsfooter{
     margin-right: 25px;
 }
+/* Copyright footer */
+.crfooter{
+    margin-left: 25px;
+}
