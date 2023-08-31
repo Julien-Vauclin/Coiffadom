@@ -21,10 +21,20 @@
                         <a class="nav-link" href="#">Page 4</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <button class="loupe" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
+
+                <div class="search-popup">
+                    <div class="search-content">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Rechercher..." class="rechercher">
+                            <button onclick="closeSearchPopup()">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Ex: Tarifs, Photos..." aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                </form>
+                </form> -->
             </div>
         </div>
     </nav>
