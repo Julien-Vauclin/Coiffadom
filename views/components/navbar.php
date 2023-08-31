@@ -31,10 +31,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Ex: Tarifs, Photos..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                </form> -->
             </div>
         </div>
     </nav>
