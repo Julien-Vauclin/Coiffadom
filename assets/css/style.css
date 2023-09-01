@@ -37,8 +37,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60%;
+    height: 0%;
     margin: 0 auto;
+    margin-top: 230px;
 }
 .search-bar {
     background-color: white;
@@ -51,7 +52,7 @@ body{
 .rechercher{
     margin-right: 15px;
 }
-.loupe{
+.loupe1{
     border: none;
     background-color: transparent;
 }
@@ -69,4 +70,21 @@ body{
 /* Copyright footer */
 .crfooter{
     margin-left: 25px;
+}
+/*testtt*/
+@media screen and (max-width: 992px){
+    .loupe1{
+        display: block;
+    }
+    .loupe2{
+        display: none;
+    }   
+}
+@media screen and (min-width: 992px){  
+    .loupe1{
+        display: none;
+    }
+    .loupe2{
+        display: block;
+    } 
 }

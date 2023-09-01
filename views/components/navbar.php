@@ -3,6 +3,15 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
             <a class="navbar-brand" href="#"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
+            <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
+            <div class="search-popup">
+                <div class="search-content">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Rechercher..." class="rechercher">
+                        <button onclick="closeSearchPopup()">Fermer</button>
+                    </div>
+                </div>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,17 +30,18 @@
                         <a class="nav-link" href="#">Page 4</a>
                     </li>
                 </ul>
-                <button class="loupe" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
-
-                <div class="search-popup">
-                    <div class="search-content">
-                        <div class="search-bar">
-                            <input type="text" placeholder="Rechercher..." class="rechercher">
-                            <button onclick="closeSearchPopup()">Fermer</button>
-                        </div>
+            </div>
+            <!-- 2eme loupe -->
+            <button class="loupe2" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
+            <div class="search-popup">
+                <div class="search-content">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Rechercher..." class="rechercher">
+                        <button onclick="closeSearchPopup()">Fermer</button>
                     </div>
                 </div>
             </div>
+            <!-- fin -->
         </div>
     </nav>
     <!-- Fin toggler -->
