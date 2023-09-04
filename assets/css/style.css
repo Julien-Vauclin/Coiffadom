@@ -55,6 +55,12 @@ body{
     border: none;
     background-color: transparent;
 }
+/* Bouton connexion/inscription */
+.connexion{
+    border: none;
+    background-color:transparent;
+    margin-left: 25px;
+}
 /* FOOTER */
 /* Footer */
 .myfooter{
