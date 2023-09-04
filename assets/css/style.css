@@ -71,7 +71,7 @@ body{
     margin-left: 25px;
 }
 /* MEDIA QUERIES */
-/* MOBILE */
+/* Mobile */
 @media screen and (max-width: 576px) 
 {
     .loupe1{
@@ -86,7 +86,7 @@ body{
         margin-top: 150px;
     }
 }
-/* TABLETTE */ 
+/* Tablette */ 
 @media screen and (min-width: 576px) {
     .loupe1{
         display: block;
@@ -100,7 +100,7 @@ body{
         margin-top: 250px;
     }
 }
-/* DESKTOP */
+/* Desktop */
 @media screen and (min-width: 992px){  
     .loupe1{
         display: none;
