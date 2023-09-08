@@ -26,16 +26,16 @@
                     <!-- Les liens de navigation -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Page 1</a>
+                            <a class="nav-link" href="#">Prendre RDV</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Page 2</a>
+                            <a class="nav-link" href="#">À propos de moi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Page 3</a>
+                            <a class="nav-link" href="#">Créations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Page 4</a>
+                            <a class="nav-link" href="#">Tarifs</a>
                         </li>
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
+<!-- Inclusion de la vue home.php -->
 <?php
-require "../models/data.php";
 include "../views/home.php";
 ?>
 <!--Fonctions-->
