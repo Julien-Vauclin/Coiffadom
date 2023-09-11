@@ -6,6 +6,7 @@ class Employee
     private string $mail;
     private string $phone;
     private string $password;
+    private string $passwordConfirm;
 
     public static function getInfosEmployee(string $mail)
     {

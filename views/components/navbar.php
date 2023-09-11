@@ -52,7 +52,9 @@
                 </div>
             </div>
             <!-- Bouton connexion/inscription -->
-            <button class="connexion">Connexion/Inscription</button>
+            <a href="../../../Coiffadom/views/inscription.php">
+                <button class="connexion">Connexion/Inscription</button>
+            </a>
         </div>
     </nav>
 </nav>
