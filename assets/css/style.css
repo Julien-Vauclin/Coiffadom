@@ -1,6 +1,7 @@
 /* BODY */
 body{
     background-color: rgb(163, 163, 163);
+    margin-bottom: 100px;
 }
 /* NAVBAR */
 /* Navbar */
@@ -117,4 +118,9 @@ body{
     .search-content {
         margin-top: 350px;
     }
+}
+/* INSCRIPTION */
+/* Messages d'erreur */
+.invalid{
+    color: red;
 }
