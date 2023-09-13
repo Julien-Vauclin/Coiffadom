@@ -1,7 +1,7 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
 <!-- FORMULAIRE D'INSCRIPTION -->
-<form class="formulaire" method="post" onsubmit="return validateForm()">
+<form class="myform" method="post" onsubmit="return validateForm()">
     <!-- Nom -->
     <div class="mb-3">
         <label class="form-label">Nom</label>
@@ -47,15 +47,21 @@
         <?php echo $passwordConfirmError; ?>
     </div>
     <!-- Boutons connexion & inscription -->
-    <div class="boutonslogin">
-        <div class="divboutonaccueillogin">
-            <a href="login-employe.php">
-                <button type="button" class="boutonaccueillogin">Retour</button>
+    <div class="signup-buttons">
+        <div class="signup-div-return-button">
+            <a href="#">
+                <button type="button" class="signup-return-button">Retour</button>
             </a>
         </div>
         <!-- Bouton inscription -->
-        <div class="boutonconnexionemploye">
-            <button type="submit" name="submit" class="sinscrire">S'inscrire</button>
+        <div class="signup-div-register-button">
+            <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
+        </div>
+        <!-- Bouton retour à l'accueil -->
+        <div class="signup-div-return-button">
+            <a href="../../Coiffadom/controllers/controller-home.php">
+                <button type="button" class="signup-home-button">Retour à l'accueil</button>
+            </a>
         </div>
     </div>
 </form>
