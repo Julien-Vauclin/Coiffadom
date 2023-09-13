@@ -2,4 +2,3 @@
 <?php
 include "../views/home.php";
 ?>
-<!--Fonctions-->

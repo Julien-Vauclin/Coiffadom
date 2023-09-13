@@ -1,7 +1,7 @@
 <?php
 require_once "../config.php";
-require_once "../models/user.php";
 require_once "../helpers/database.php";
+require_once "../models/user.php";
 // VARIABLES
 // Variables pour stocker les valeurs des champs du formulaire
 $lastname = $firstname = $mail = $phone = $password =  $passwordConfirm = "";
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
 
-                    echo "L'employé a bien été ajouté. (inscription.php)";
+                    echo "L'employé a bien été ajouté. (registration.php)";
                     echo '<script>window.alert("Bienvenue ' . $firstname . ' ,vous êtes inscrit(e) !");
             window.location.href = "../controllers/controller-login-employe.php";
             </script>';
@@ -121,4 +121,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<?php include "../views/inscription.php"; ?>
+<?php include "../views/registration.php"; ?>

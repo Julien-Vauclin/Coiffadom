@@ -53,7 +53,7 @@
                 </div>
             </div>
             <!-- Bouton Connexion/Inscription -->
-            <a href="../../../Coiffadom/controllers/controller-inscription.php">
+            <a href="../../../Coiffadom/controllers/controller-registration.php">
                 <button class="connexion">Connexion/Inscription</button>
             </a>
         </div>
