@@ -1,7 +1,8 @@
 <nav>
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
-            <a class="navbar-brand" href="#"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
+            <!-- Logo -->
+            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
             <!-- 1ère loupe -->
             <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
@@ -51,8 +52,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Bouton connexion/inscription -->
-            <a href="../../../Coiffadom/views/inscription.php">
+            <!-- Bouton Connexion/Inscription -->
+            <a href="../../../Coiffadom/controllers/controller-inscription.php">
                 <button class="connexion">Connexion/Inscription</button>
             </a>
         </div>

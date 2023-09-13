@@ -121,5 +121,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<?php
-?>
+<?php include "../views/inscription.php"; ?>

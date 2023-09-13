@@ -1,6 +1,5 @@
-<?php require_once "components/navbar.php" ?>
 <?php require_once "components/head.php" ?>
-<?php require_once "../controllers/controller-inscription.php" ?>
+<?php require_once "components/navbar.php" ?>
 <!-- FORMULAIRE D'INSCRIPTION -->
 <form class="formulaire" method="post" onsubmit="return validateForm()">
     <!-- Nom -->
