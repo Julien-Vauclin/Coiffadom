@@ -48,17 +48,17 @@
     </div>
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
-        <div class="signup-div-return-button">
+        <div class="div-register-buttons">
             <a href="#">
                 <button type="button" class="signup-return-button">Retour</button>
             </a>
         </div>
         <!-- Bouton inscription -->
-        <div class="signup-div-register-button">
+        <div class="div-register-buttons">
             <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
         </div>
         <!-- Bouton retour à l'accueil -->
-        <div class="signup-div-return-button">
+        <div class="div-register-buttons">
             <a href="../../Coiffadom/controllers/controller-home.php">
                 <button type="button" class="signup-home-button">Retour à l'accueil</button>
             </a>
