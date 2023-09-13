@@ -1,10 +1,10 @@
+<?php require_once "../config.php"; ?>
+<?php require_once "../helpers/database.php"; ?>
+<?php require_once "../models/user.php"; ?>
 <?php
-require_once "../config.php";
-require_once "../helpers/database.php";
-require_once "../models/user.php";
 // VARIABLES
 // Variables pour stocker les valeurs des champs du formulaire
-$lastname = $firstname = $mail = $phone = $password =  $passwordConfirm = "";
+$lastname = $firstname = $mail = $phone = $password = $passwordConfirm = "";
 // Variables pour stocker les messages d'erreur
 $lastnameError = $firstnameError = $mailError = $phoneError = $passwordError = $passwordConfirmError = "";
 // REGEX
@@ -109,10 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
 
-                    echo "L'employé a bien été ajouté. (registration.php)";
-                    echo '<script>window.alert("Bienvenue ' . $firstname . ' ,vous êtes inscrit(e) !");
-            window.location.href = "../controllers/controller-login-employe.php";
-            </script>';
+                    echo "L'employé a bien été ajouté. (signup.php)";
+                    echo '<script>
+        window.alert("Bienvenue ' . $firstname . ' ,vous êtes inscrit(e) !");
+        window.location.href = "../controllers/controller-login-employe.php";
+    </script>';
                 }
             } catch (PDOException $exception) {
                 echo "Erreur lors de l'ajout de l'employé : " . $exception->getMessage() . "<br>";
@@ -121,4 +122,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-<?php include "../views/registration.php"; ?>
+<?php include "../views/signup.php"; ?>

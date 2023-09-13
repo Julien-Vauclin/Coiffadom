@@ -49,7 +49,7 @@
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
         <div class="div-register-buttons">
-            <a href="#">
+            <a href="../../Coiffadom/controllers/controller-login.php">
                 <button type="button" class="signup-return-button">Retour</button>
             </a>
         </div>
