@@ -11,6 +11,7 @@ $lastnameError = $firstnameError = $mailError = $phoneError = $passwordError = $
 // Définition de la variable de sécurité pour les Regex
 $securityLevel = 0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Récupération des données du formulaire
     $lastname = $_POST['lastname'];
     $firstname = $_POST['firstname'];
     $mail = $_POST['mail'];
@@ -18,68 +19,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $passwordConfirm = $_POST['passwordConfirm'];
-    // Récupération des données du formulaire
-    $nomInscrit = $_POST['lastname'];
-    $prenomInscrit = $_POST['firstname'];
-    $mailInscrit = $_POST['mail'];
-    $numeroTelephone = $_POST['phone'];
-    $motDePasse = $_POST['password'];
-    $passwordConfirm = $_POST['passwordConfirm'];
     // Définition des regex
     $regexLastname = '/^[a-zA-Z-éèëêàäâûüúîïìôöòÿýÉÈËÊÀÄÂÛÜÚÎÏÌÔÖÒ-]+$/';
     $regexFirstname = '/^[a-zA-Z-éèëêàäâûüúîïìôöòÿýÉÈËÊÀÄÂÛÜÚÎÏÌÔÖÒ-]+$/';
     $regexMail = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/';
     $regexPhone = '/^(06|07)\d{8}$/';
     // Fonction lastname (regex)
-    if ($nomInscrit === "") {
+    if ($lastname === "") {
         $lastnameError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexLastname, $nomInscrit)) {
+    } elseif (preg_match($regexLastname, $lastname)) {
         $lastnameError = "";
     } else {
         $lastnameError = "<p class='invalid'>Le nom est invalide. (Caractères spéciaux interdits, sauf \"-\")</p>";
     };
     // Fonction firstname (regex)
-    if ($prenomInscrit === "") {
+    if ($firstname === "") {
         $firstnameError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexFirstname, $prenomInscrit)) {
+    } elseif (preg_match($regexFirstname, $firstname)) {
         $firstnameError = "";
     } else {
         $firstnameError = "<p class='invalid'>Le prénom est invalide. (Caractères spéciaux interdits, sauf \"-\")</p>";
     };
     // Fonction mail (regex)
-    if ($mailInscrit === "") {
+    if ($mail === "") {
         $mailError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexMail, $mailInscrit)) {
+    } elseif (preg_match($regexMail, $mail)) {
         $mailError = "";
     } else {
         $mailError = "<p class='invalid'>L'adresse mail est invalide.</p>";
     };
     // Fonction phone (regex)
-    if ($numeroTelephone === "") {
+    if ($phone === "") {
         $phoneError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexPhone, $numeroTelephone)) {
+    } elseif (preg_match($regexPhone, $phone)) {
         $phoneError = "";
     } else {
         $phoneError = "<p class='invalid'>Le numéro de téléphone est invalide.</p>";
     };
     // Fonction password
-    if ($motDePasse !== $passwordConfirm) {
+    if ($password !== $passwordConfirm) {
         $passwordError = "<p class='invalid'>Les mots de passe doivent être identiques.</p>";
     } else {
+        // FORCE MOT DE PASSE
         // Vérification de la force du mot de passe (au moins "moyen")
-        if (preg_match('/[a-z]/', $motDePasse)) {
+        if (preg_match('/[a-z]/', $password)) {
             $securityLevel++;
         }
-        if (preg_match('/[A-Z]/', $motDePasse)) {
+        if (preg_match('/[A-Z]/', $password)) {
             $securityLevel++;
         }
-        if (preg_match('/[0-9]/', $motDePasse)) {
+        if (preg_match('/[0-9]/', $password)) {
             $securityLevel++;
         }
-        if (preg_match('/[@?!$]/', $motDePasse)) {
+        if (preg_match('/[@?!$]/', $password)) {
             $securityLevel++;
         }
-        if (strlen($motDePasse) >= 8) {
+        if (strlen($password) >= 8) {
             $securityLevel++;
         }
         if ($securityLevel == 0) {
@@ -89,9 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $passwordError = "";
         }
+        // Vérification qu'aucune erreur n'est présente
         if ($lastnameError !== "" || $firstnameError !== "" || $mailError !== "" || $phoneError !== "" || $passwordError !== "") {
             echo "<p class='invalid'>Veuillez corriger les erreurs avant d'envoyer le formulaire.</p>";
         } else {
+            // BASE DE DONNÉES
             try {
                 $db = new Database();
                 $pdo = $db->createInstancePDO();
