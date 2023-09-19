@@ -1,5 +1,3 @@
-<!-- Base de données -->
-
 <?php
 class Database
 {
@@ -9,12 +7,9 @@ class Database
         $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
         try {
             $pdo = new PDO($dsn, DB_USER, DB_PASSWORD);
-            if ($pdo) {
-                return $pdo;
-            }
-            return $pdo;
+            return $pdo; // Retourne l'objet PDO créé
         } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
+            throw new Exception('Erreur lors de la connexion à la base de données : ' . $e->getMessage());
         }
     }
 }

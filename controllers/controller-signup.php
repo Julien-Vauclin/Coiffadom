@@ -95,26 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try {
                 $db = new Database();
                 $pdo = $db->createInstancePDO();
-
-                $sql = "SELECT COUNT(*) AS count FROM employee WHERE mail = ?";
+                // Requête SQL pour insérer les données dans la table "user"
+                $sql = "INSERT INTO user (lastname, firstname, mail, phone, password) VALUES (?, ?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$mail]);
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($result['count'] > 0) {
-                    echo "<p class='invalid'>L'adresse e-mail existe déjà dans la base de données.</p>";
-                } else {
-                    // Insertion dans la base de données
-                    $sql = "INSERT INTO employee (lastname, firstname, mail, phone, password) VALUES (?, ?, ?, ?, ?)";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
-
-                    echo "L'employé a bien été ajouté. (signup.php)";
-                    echo '<script>
-        window.alert("Bienvenue ' . $firstname . ' ,vous êtes inscrit(e) !");
-        window.location.href = "../controllers/controller-login-employe.php";
-    </script>';
-                }
+                $stmt->execute([$nomInscrit, $prenomInscrit, $mailInscrit, $numeroTelephone, $motDePasse]);
+                echo "L'employé a bien été ajouté. (inscription.php)";
             } catch (PDOException $exception) {
                 echo "Erreur lors de l'ajout de l'employé : " . $exception->getMessage() . "<br>";
             }
