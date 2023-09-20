@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else if ($result == false) {
             $msgMail = "<p class='invalid'>L'utilisateur n'existe pas.</p>";
         } else {
+            $test = User::getInfosUser($password);
             //On vérifie si le mot de passe est correct
             if (password_verify($password, $result['password'])) {
                 //On démarre la session
@@ -21,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user'] = $result;
                 unset($_SESSION['user']['password']);
                 //On redirige vers la page d'accueil
-                header('Location: ../controllers/controller-espace-employe.php');
+                header('Location: ../controllers/controller-home.php');
                 exit();
             } else if ($password == "") {
                 $msgMdp = "<p class='invalid'>Veuillez entrer un mot de passe.</p>";
-            } else {
+            } else if ($test == false) {
                 $msgMdp = "<p class='invalid'>Le mot de passe est incorrect.</p>";
             }
         }
