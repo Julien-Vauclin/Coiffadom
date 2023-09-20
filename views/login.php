@@ -1,6 +1,6 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
-<form class="formulaire" action="" method="post">
+<form class="myform" action="" method="post">
     <!-- Adresse mail -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Adresse e-mail</label>
@@ -11,7 +11,7 @@
     <label for="motdepasse" class="form-label">Mot de passe</label>
     <div class="input-group mb-3">
         <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="password">
-        <span class="input-group-text"><i class="bi bi-eye-fill" onclick="afficherPassword()"></i></span>
+        <span class="input-group-text" onclick="afficherPassword()"><i class="bi bi-eye-fill"></i></span>
     </div>
     <?= $msgMdp ?? "" ?>
     <!-- Affichage mot de passe -->
@@ -31,17 +31,17 @@
         }
     </script>
     <!-- Boutons connexion & inscription -->
-    <div class="boutonslogin">
+    <div class="signup-buttons">
         <!-- Bouton connexion -->
-        <div class="boutonconnexionemploye">
-            <button class="connexionemploye" type="submit" name="submit">Connexion</button>
+        <div class="div-register-buttons">
+            <button class="login-connexion-button" type="submit" name="submit">Connexion</button>
         </div>
         <!-- Bouton inscription -->
-        <div class="boutoninscriptionemploye">
+        <div class="div-register-buttons">
             <a href="../../Coiffadom/controllers/controller-signup.php">
-                <button type="button" class="inscriptionemploye">Inscription</button>
+                <button class="login-signup-button" type="button">Inscription</button>
             </a>
-            <p class="pasdecompte">Vous n'avez pas de compte ?</p>
+            <p class="noaccount">Vous n'avez pas de compte ?</p>
         </div>
     </div>
 </form>

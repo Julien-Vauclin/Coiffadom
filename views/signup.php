@@ -2,6 +2,7 @@
 <?php require_once "components/navbar.php" ?>
 <!-- FORMULAIRE D'INSCRIPTION -->
 <form class="myform" method="post" onsubmit="return validateForm()">
+    <?php echo $errorform; ?>
     <!-- Nom -->
     <div class="mb-3">
         <label class="form-label">Nom</label>
@@ -52,6 +53,7 @@
             <a href="../../Coiffadom/controllers/controller-login.php">
                 <button type="button" class="signup-return-button">Retour</button>
             </a>
+            <p class="noaccount">Vous avez un compte !</p>
         </div>
         <!-- Bouton inscription -->
         <div class="div-register-buttons">

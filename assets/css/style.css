@@ -121,6 +121,12 @@ body{
     }
 }
 /* INSCRIPTION */
+/* Erreurs formulaire */
+.errorform{
+    color: red;
+    margin-bottom: 35px;
+    font-size: 20px;
+}
 /* Messages d'erreur */
 .invalid{
     color: red;
@@ -141,6 +147,7 @@ body{
     margin-left: 20px;
     margin-right: 20px;
     transition: 0.4s;
+    text-align: center;
 }
 /* Bouton Retour */
 .signup-return-button{
@@ -152,7 +159,6 @@ body{
     border: none;
     font-size: 20px;
     transition: 0.4s;
-    margin-bottom: 80px;
 }
 .signup-return-button:hover{
     background-color: rgb(33, 126, 247);
@@ -198,4 +204,33 @@ body{
     transition: 0.4s;
     width: 190px;
     height: 60px;
+}
+/* CONNEXION */
+/* Bouton Connexion */
+.login-connexion-button{
+    background-color: #E33B89;
+    color: white;
+    width: 180px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-bottom: 80px;
+}
+/* Bouton Inscription */
+.login-signup-button{
+    background-color: #E33B89;
+    color: white;
+    width: 180px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+/* Pas de compte */
+.noaccount{
+margin-top: 10px;
+text-decoration: none;
 }

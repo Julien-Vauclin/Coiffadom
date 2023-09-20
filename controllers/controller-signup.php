@@ -1,6 +1,7 @@
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/user.php"; ?>
+<?php $errorform = ""; ?>
 <?php
 // VARIABLES
 // Variables pour stocker les valeurs des champs du formulaire
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         // Vérification qu'aucune erreur n'est présente
         if ($lastnameError !== "" || $firstnameError !== "" || $mailError !== "" || $phoneError !== "" || $passwordError !== "") {
-            echo "<p class='invalid'>Veuillez corriger les erreurs avant d'envoyer le formulaire.</p>";
+            $errorform = "<p class='errorform'>Veuillez corriger les erreurs avant d'envoyer le formulaire.</p>";
         } else {
             // BASE DE DONNÉES
             try {

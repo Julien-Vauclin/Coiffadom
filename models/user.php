@@ -1,5 +1,5 @@
 <?php
-class Employee
+class User
 {
     private string $lastname;
     private string $firstname;
@@ -8,11 +8,11 @@ class Employee
     private string $password;
     private string $passwordConfirm;
 
-    public static function getInfosEmployee(string $mail)
+    public static function getInfosUser(string $mail)
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "SELECT * FROM employee WHERE mail = ?";
+            $sql = "SELECT * FROM user WHERE mail = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$mail]);
 
