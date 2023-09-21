@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user'] = $result;
                 unset($_SESSION['user']['password']);
                 //On redirige vers la page d'accueil
-                header('Location: ../controllers/controller-home.php');
+                header('Location:../controllers/controller-home.php');
                 exit();
             } else if ($password == "") {
                 $msgMdp = "<p class='invalid'>Veuillez entrer un mot de passe.</p>";

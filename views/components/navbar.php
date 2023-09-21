@@ -54,7 +54,7 @@
             </div>
             <!-- Bouton Connexion/Inscription -->
             <a href="../../../Coiffadom/controllers/controller-login.php">
-                <button class="connexion">Connexion/Inscription</button>
+                <button class="connexion"><span class="bi bi-person-circle"></span>Connexion/Inscription</button>
             </a>
         </div>
     </nav>
