@@ -59,9 +59,8 @@
                     <span class="select-label"></span>
                 </button>
                 <ul id="select-options" class="select-options">
-                    <li data-value="" disabled selected>Choix de la page</li>
-                    <li data-value="../../../Coiffadom/controllers/controller-login.php">Connexion/Inscription</li>
-                    <li data-value="2">Autre Page 1</li>
+                    <li data-value="../../../Coiffadom/controllers/controller-login.php">Connexion</li>
+                    <li data-value="../../Coiffadom/controllers/controller-signup.php">Inscription</li>
                 </ul>
             </div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
