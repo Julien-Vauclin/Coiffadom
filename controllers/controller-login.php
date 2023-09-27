@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 //On enregistre le nom d'utilisateur dans la session
                 $_SESSION['user'] = $result;
                 unset($_SESSION['user']['password']);
+                // Stockez également le nom et le prénom dans la session
+                $_SESSION['user']['firstname'] = $result['firstname'];
+                $_SESSION['user']['lastname'] = $result['lastname'];
                 //On redirige vers la page d'accueil
                 header('Location:../controllers/controller-home.php');
                 exit();
@@ -28,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $msgMdp = "<p class='invalid'>Veuillez entrer un mot de passe.</p>";
             } else if ($test == false) {
                 $msgMdp = "<p class='invalid'>Le mot de passe est incorrect.</p>";
+            } else {
+                $msghaha = "Bienvenue " . $result['firstname'] . " " . $result['lastname'] . " !";
             }
         }
     }

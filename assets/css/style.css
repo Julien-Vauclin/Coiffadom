@@ -1,3 +1,16 @@
+/* GENERAL */
+/* Liens */
+a{
+    text-decoration: none;
+}
+.juju{
+    margin-top: 7px;
+}
+.bi-person-circle{
+    font-size: 21px;
+    padding-left: 4px;
+    padding-bottom: 5px;
+}
 /* BODY */
 body{
     background-color: rgb(163, 163, 163);
@@ -57,9 +70,12 @@ body{
     border: none;
     background-color: transparent;
 }
+.loupe2{
+    border: none;
+    background-color: transparent;
+}
 /* Bouton connexion/inscription */
 .connexion{
-    width: 215px;
     height: 40px;
     border: none;
     border-radius: 9px;
@@ -96,8 +112,18 @@ body{
     .search-content {
         margin-top: 150px;
     }
+    .juju{
+        display: none;
+    }
+    .bi-person-circle{
+        margin-right: 10px;
+        margin: 0 auto;
+        margin-top: 7px;
+        margin-left: 10px;
+        margin-right: 7px;
+    }
 }
-/* Tablette */ 
+/* Tablette */
 @media screen and (min-width: 576px) {
     .loupe1{
         display: block;
@@ -110,6 +136,16 @@ body{
     .search-content {
         margin-top: 250px;
     }
+    .juju{
+        display: none;
+    }
+    .bi-person-circle{
+        margin-right: 10px;
+        margin: 0 auto;
+        margin-top: 7px;
+        margin-left: 10px;
+        margin-right: 7px;
+    }
 }
 /* Desktop */
 @media screen and (min-width: 992px){  
@@ -121,6 +157,20 @@ body{
     }
     .search-content {
         margin-top: 350px;
+    }
+    .juju{
+        display: block;
+        width: 180px;
+    }
+    .connexion{
+        display: flex;
+        text-decoration: hidden;
+    }
+    .bi-person-circle{
+        margin-right: 10px;
+        margin: 0 auto;
+        margin-top: 7px;
+        margin-left: 10px;
     }
 }
 /* INSCRIPTION */
@@ -251,6 +301,54 @@ body{
     margin-top: 10px;
     text-decoration: none;
 }
-.bi-person-circle{
-    margin-right: 10px;
+
+#roro{
+    text-decoration: none;
+}
+/* JAJAJAJAJ */
+.custom-select {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.select-button {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    border-radius: 9px;
+    background-color:rgba(0, 0, 0, 0.11);
+    margin-left: 25px;
+    height: 50px;
+    width: 60px;
+}
+
+.select-button span {
+    font-size: 20px;
+    color: #333;
+}
+
+.select-options {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    display: none;
+    list-style: none;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 9px;
+    width: 200px;
+    text-align: end;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.select-options li:hover {
+    background-color: #ddd;
 }

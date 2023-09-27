@@ -94,3 +94,10 @@ motdepasse.addEventListener('input', function () {
     secure.innerHTML = '<p style="color: deeppink">Ultra sécurisé !</p>';
   }
 });
+document.getElementById('pageSelector').addEventListener('change', function () {
+  var selectedOption = this.options[this.selectedIndex];
+  var selectedValue = selectedOption.value;
+  if (selectedValue) {
+    window.location.href = selectedValue;
+  }
+});
