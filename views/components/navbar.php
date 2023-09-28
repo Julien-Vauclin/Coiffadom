@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
             <!-- Logo -->
-            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
+            <a id="caca" class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
             <!-- 1ère loupe -->
             <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
@@ -41,7 +41,6 @@
                     </ul>
                 </div>
             </div>
-
             <!-- 2ème loupe -->
             <button class="loupe2" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
@@ -53,49 +52,42 @@
                 </div>
             </div>
             <!-- Bouton Connexion/Inscription -->
-            <div class="custom-select">
-                <button id="select-button" class="select-button">
+            <div class="div-navbar-login-button custom-select">
+                <button id="select-button" class="navbar-login-button select-button">
                     <span class="bi bi-person-circle"></span>
                     <span class="select-label"></span>
                 </button>
-                <ul id="select-options" class="select-options">
+                <!-- Menu déroulant -->
+                <ul id="select-options" class="navbar-login-button-list select-options">
                     <li data-value="../../../Coiffadom/controllers/controller-login.php">Connexion</li>
                     <li data-value="../../Coiffadom/controllers/controller-signup.php">Inscription</li>
                 </ul>
             </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    var selectButton = $("#select-button");
-                    var selectOptions = $("#select-options");
-
-                    selectButton.on("click", function(e) {
-                        e.stopPropagation();
-                        selectOptions.toggle();
-                    });
-
-                    selectOptions.on("click", "li", function() {
-                        var selectedValue = $(this).data("value");
-                        if (selectedValue) {
-                            window.location.href = selectedValue;
-                        }
-                    });
-
-                    // Fermez la liste déroulante lorsque l'utilisateur clique en dehors d'elle
-                    $(document).on("click", function() {
-                        selectOptions.hide();
-                    });
-                });
-            </script>
         </div>
     </nav>
 </nav>
 <script>
-    document.getElementById("pageSelector").addEventListener("change", function() {
-        var selectedOption = this.options[this.selectedIndex];
-        var selectedValue = selectedOption.value;
-        if (selectedValue) {
-            window.location.href = selectedValue;
-        }
+    // Fonction pour le menu déroulant Connexion/Inscription
+    $(document).ready(function() {
+        var selectButton = $('#select-button');
+        var selectOptions = $('#select-options');
+
+        selectButton.on('click', function(e) {
+            e.stopPropagation();
+            selectOptions.toggle();
+        });
+
+        selectOptions.on('click', 'li', function() {
+            var selectedValue = $(this).data('value');
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        });
+
+        // Fonction qui permet de fermer le menu déroulant lorsqu'on clique à l'extérieur
+        $(document).on('click', function() {
+            selectOptions.hide();
+        });
     });
+    Fonction
 </script>

@@ -10,8 +10,6 @@ if (isset($_SESSION['user'])) {
     $lastname = $_SESSION['user']['lastname'];
     $msghaha = "Bienvenue $firstname $lastname !";
 } else {
-    // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté.
-    header('Location:../../Coiffadom/controllers/controller-login.php');
     exit();
 }
 echo $msghaha;

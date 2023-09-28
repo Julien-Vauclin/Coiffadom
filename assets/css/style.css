@@ -75,12 +75,49 @@ body{
     background-color: transparent;
 }
 /* Bouton connexion/inscription */
-.connexion{
-    height: 40px;
+.div-navbar-login-button{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.navbar-login-button {
+    display: flex;
+    align-items: center;
+    outline: none;
     border: none;
     border-radius: 9px;
     background-color:rgba(0, 0, 0, 0.11);
     margin-left: 25px;
+    height: 50px;
+    width: 60px;
+}
+.navbar-login-button span {
+    font-size: 20px;
+    color: #333;
+}
+.navbar-login-button-list {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    display: none;
+    list-style: none;
+    background-color: #f0f0f0;
+    box-shadow: 0px 0px 10px #000000a1;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 9px;
+    /* width: 200px; */
+    text-align: end;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar-login-button-list li:hover {
+    background-color: #ddd;
 }
 /* FOOTER */
 /* Footer */
@@ -300,56 +337,4 @@ body{
 .noaccount{
     margin-top: 10px;
     text-decoration: none;
-}
-
-#roro{
-    text-decoration: none;
-}
-/* JAJAJAJAJ */
-.custom-select {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.select-button {
-    display: flex;
-    align-items: center;
-    outline: none;
-    border: none;
-    border-radius: 9px;
-    background-color:rgba(0, 0, 0, 0.11);
-    margin-left: 25px;
-    height: 50px;
-    width: 60px;
-}
-
-.select-button span {
-    font-size: 20px;
-    color: #333;
-}
-
-.select-options {
-    position: absolute;
-    top: 100%;
-    z-index: 1;
-    display: none;
-    list-style: none;
-    background-color: #f0f0f0;
-    box-shadow: 0px 0px 10px #000000a1;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 9px;
-    width: 200px;
-    text-align: end;
-    padding: 0;
-    margin: 0;
-    right: 0;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.select-options li:hover {
-    background-color: #ddd;
 }
