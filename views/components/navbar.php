@@ -83,11 +83,9 @@
                 window.location.href = selectedValue;
             }
         });
-
         // Fonction qui permet de fermer le menu déroulant lorsqu'on clique à l'extérieur
         $(document).on('click', function() {
             selectOptions.hide();
         });
     });
-    Fonction
 </script>

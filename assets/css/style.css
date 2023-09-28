@@ -3,14 +3,6 @@
 a{
     text-decoration: none;
 }
-.juju{
-    margin-top: 7px;
-}
-.bi-person-circle{
-    font-size: 21px;
-    padding-left: 4px;
-    padding-bottom: 5px;
-}
 /* BODY */
 body{
     background-color: rgb(163, 163, 163);
@@ -106,7 +98,6 @@ body{
     border: 1px solid #ccc;
     border-top: none;
     border-radius: 9px;
-    /* width: 200px; */
     text-align: end;
     padding: 0;
     margin: 0;
@@ -118,6 +109,11 @@ body{
 }
 .navbar-login-button-list li:hover {
     background-color: #ddd;
+}
+.bi-person-circle{
+    font-size: 21px;
+    padding-left: 4px;
+    padding-bottom: 5px;
 }
 /* FOOTER */
 /* Footer */
@@ -149,9 +145,6 @@ body{
     .search-content {
         margin-top: 150px;
     }
-    .juju{
-        display: none;
-    }
     .bi-person-circle{
         margin-right: 10px;
         margin: 0 auto;
@@ -173,9 +166,6 @@ body{
     .search-content {
         margin-top: 250px;
     }
-    .juju{
-        display: none;
-    }
     .bi-person-circle{
         margin-right: 10px;
         margin: 0 auto;
@@ -194,10 +184,6 @@ body{
     }
     .search-content {
         margin-top: 350px;
-    }
-    .juju{
-        display: block;
-        width: 180px;
     }
     .connexion{
         display: flex;
