@@ -1,15 +1,6 @@
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/user.php"; ?>
-<style>
-    .error {
-        color: red;
-    }
-
-    .success {
-        color: green;
-    }
-</style>
 <?php $errorform = ""; ?>
 <?php
 // VARIABLES
@@ -108,13 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 // On vérifie si l'employé existe déjà
                 if ($result['count'] > 0) {
-                    echo "L'employé existe déjà. (inscription.php)";
+                    echo "L'employé existe déjà. (controller-signup.php)";
                 } else {
                     // On ajoute l'employé
                     $sql = "INSERT INTO user (lastname, firstname, mail, phone, password) VALUES (?, ?, ?, ?, ?)";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
-                    echo "L'employé a bien été ajouté. (inscription.php)";
+                    echo "L'employé a bien été ajouté. (controller-signup.php)";
                     echo "<script>
                     window.onload = function() {
                         // On cache le formulaire
@@ -131,12 +122,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // On affiche le décompte
                         var count = 3;
                         var countDown = document.createElement('p');
-                        countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';
+                        countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.</p>';
                         document.body.appendChild(countDown);
                         // On redirige l'utilisateur vers la page de Connexion
                         var interval = setInterval(function() {
                             count--;
-                            countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';
+                            countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.</p>';
                             if (count === 0) {
                                 clearInterval(interval);
                             }

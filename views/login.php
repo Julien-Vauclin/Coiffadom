@@ -37,10 +37,6 @@ if (isset($_SESSION['user'])) {
     </script>
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
-        <!-- Bouton connexion -->
-        <div class="div-register-buttons">
-            <button class="login-connexion-button" type="submit" name="submit">Connexion</button>
-        </div>
         <!-- Bouton inscription -->
         <div class="div-register-buttons">
             <a href="../../Coiffadom/controllers/controller-signup.php">
@@ -48,21 +44,10 @@ if (isset($_SESSION['user'])) {
             </a>
             <p class="noaccount">Vous n'avez pas de compte ?</p>
         </div>
+        <!-- Bouton connexion -->
+        <div class="div-register-buttons">
+            <button class="login-connexion-button" type="submit" name="submit">Connexion</button>
+        </div>
     </div>
 </form>
-<!-- TEST CONNEXION -->
-<?php
-if (isset($_SESSION['user'])) {
-    $firstname = $_SESSION['user']['firstname'];
-    $lastname = $_SESSION['user']['lastname'];
-    $welcomeMessage = "Bienvenue $firstname $lastname !";
-    echo "<p>$welcomeMessage</p>";
-} else {
-    $notLoggedMessage = "Vous n'êtes pas connecté(e)";
-    echo "<p>$notLoggedMessage</p>";
-    exit();
-    session_destroy();
-}
-?>
-<!-- FIN TEST CONNEXION -->
 <?php require_once "components/footer.php" ?>

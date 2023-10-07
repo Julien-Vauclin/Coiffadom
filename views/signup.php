@@ -54,21 +54,22 @@ if (isset($_SESSION['user'])) {
     </div>
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
-        <div class="div-register-buttons">
-            <a href="../../Coiffadom/controllers/controller-login.php">
-                <button type="button" class="signup-return-button">Retour</button>
-            </a>
-            <p class="noaccount">Vous avez un compte !</p>
-        </div>
-        <!-- Bouton inscription -->
-        <div class="div-register-buttons">
-            <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
-        </div>
-        <!-- Bouton retour à l'accueil -->
+        <!-- Bouton Retour à l'accueil -->
         <div class="div-register-buttons">
             <a href="../../Coiffadom/controllers/controller-home.php">
                 <button type="button" class="signup-home-button">Retour à l'accueil</button>
             </a>
+        </div>
+        <!-- Bouton Se connecter -->
+        <div class="div-register-buttons">
+            <a href="../../Coiffadom/controllers/controller-login.php">
+                <button type="button" class="signup-return-button">Se connecter</button>
+            </a>
+            <p class="noaccount">Vous avez un compte !</p>
+        </div>
+        <!-- Bouton S'inscrire -->
+        <div class="div-register-buttons">
+            <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
         </div>
     </div>
 </form>
