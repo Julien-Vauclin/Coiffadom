@@ -1,3 +1,16 @@
+<?php
+if (isset($_SESSION['user'])) {
+    $upperButtonText = "Mon compte";
+    $upperButtonLink = "../../../Coiffadom/controllers/controller-myaccount.php";
+    $lowerButtonText = "Déconnexion";
+    $lowerButtonLink = "../../../Coiffadom/controllers/controller-logout.php";
+} else {
+    $upperButtonText = "Connexion";
+    $upperButtonLink = "../../../Coiffadom/controllers/controller-login.php";
+    $lowerButtonText = "Inscription";
+    $lowerButtonLink = "../../../Coiffadom/controllers/controller-signup.php";
+}
+?>
 <nav>
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
@@ -59,8 +72,8 @@
                 </button>
                 <!-- Menu déroulant -->
                 <ul id="select-options" class="navbar-login-button-list select-options">
-                    <li data-value="../../../Coiffadom/controllers/controller-login.php">Connexion</li>
-                    <li data-value="../../Coiffadom/controllers/controller-signup.php">Inscription</li>
+                    <li data-value="<?= $upperButtonLink ?>"><?= $upperButtonText ?></li>
+                    <li data-value="<?= $lowerButtonLink ?>"><?= $lowerButtonText ?></li>
                 </ul>
             </div>
         </div>

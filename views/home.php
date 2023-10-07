@@ -1,17 +1,18 @@
 <?php session_start(); ?>
-<?php include "components/head.php" ?>
-<?php include "components/navbar.php" ?>
+<?php require_once "components/head.php" ?>
+<?php require_once "components/navbar.php" ?>
 <p>Ceci est ma homepage</p>
+<?php require_once "components/footer.php" ?>
 <?php
-$msghaha = "pas connecté";
-echo $msghaha;
 if (isset($_SESSION['user'])) {
     $firstname = $_SESSION['user']['firstname'];
     $lastname = $_SESSION['user']['lastname'];
-    $msghaha = "Bienvenue $firstname $lastname !";
+    $welcomeMessage = "Bienvenue $firstname $lastname !";
+    echo "<p>$welcomeMessage</p>";
 } else {
+    $notLoggedMessage = "Vous n'êtes pas connecté(e)";
+    echo "<p>$notLoggedMessage</p>";
     exit();
+    session_destroy();
 }
-echo $msghaha;
 ?>
-<?php include "components/footer.php" ?>

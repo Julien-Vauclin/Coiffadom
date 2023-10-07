@@ -324,3 +324,8 @@ body{
     margin-top: 10px;
     text-decoration: none;
 }
+.foufou{
+    background-color: red;
+    color: blue;
+    font-size: 50px;
+}

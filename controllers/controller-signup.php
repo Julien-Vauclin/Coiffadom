@@ -1,6 +1,15 @@
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/user.php"; ?>
+<style>
+    .error {
+        color: red;
+    }
+
+    .success {
+        color: green;
+    }
+</style>
 <?php $errorform = ""; ?>
 <?php
 // VARIABLES
@@ -106,6 +115,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
                     echo "L'employé a bien été ajouté. (inscription.php)";
+                    echo "<script>
+                    window.onload = function() {
+                        // On cache le formulaire
+                        var form = document.querySelector('form');
+                        form.style.display = 'none';
+                        // On affiche un message de bienvenue
+                        var welcomeMessage = document.createElement('p');
+                        welcomeMessage.innerHTML = 'Bienvenue';
+                        document.body.appendChild(welcomeMessage);
+                        // On redirige l'utilisateur vers la page d'accueil
+                        setTimeout(function() {
+                            window.location.href = '../../Coiffadom/controllers/controller-login.php';
+                        }, 3000);
+                        // On affiche le décompte
+                        var count = 3;
+                        var countDown = document.createElement('p');
+                        countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';
+                        document.body.appendChild(countDown);
+                        var interval = setInterval(function() {
+                            count--;
+                            countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';
+                            if (count === 0) {
+                                clearInterval(interval);
+                            }
+                        }, 1000);
+                    };
+                </script>";
                 }
             } catch (PDOException $exception) {
                 echo "Erreur lors de l'ajout de l'employé : " . $exception->getMessage() . "<br>";
