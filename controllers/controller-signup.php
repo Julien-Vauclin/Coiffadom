@@ -133,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         var countDown = document.createElement('p');
                         countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';
                         document.body.appendChild(countDown);
+                        // On redirige l'utilisateur vers la page de Connexion
                         var interval = setInterval(function() {
                             count--;
                             countDown.innerHTML = 'Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.';

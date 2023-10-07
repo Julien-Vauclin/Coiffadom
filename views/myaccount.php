@@ -1,8 +1,12 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../Coiffadom/controllers/controller-login.php");
+    exit;
+} ?>
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
-<p>Ceci est ma homepage</p>
-<?php require_once "components/footer.php" ?>
+<p>page my account VIEWS</p>
+<!-- TEST CONNEXION -->
 <?php
 if (isset($_SESSION['user'])) {
     $firstname = $_SESSION['user']['firstname'];
@@ -15,3 +19,6 @@ if (isset($_SESSION['user'])) {
     exit();
     session_destroy();
 }
+?>
+<!-- FIN TEST CONNEXION -->
+<?php require_once "components/footer.php" ?>
