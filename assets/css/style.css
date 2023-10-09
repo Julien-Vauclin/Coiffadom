@@ -338,29 +338,37 @@ body{
     font-size: 50px;
 }
 /* MON COMPTE */
-/* Logos */
+/* Conteneur cartes */
 .containerMyAccount{
     margin-top: 50px;
 }
+/* Logos */
 .logoMyAccount{
     width: 25%;
     margin-left: 15px;
     margin-top: 10px;
 }
+/* Rangée inférieure */
 .lowerRowMyAccount{
     margin-bottom: 145px;
 }
-/* .upperRowMyAccount{
-    margin-top: 50px;
-} */
+/* Cartes */
 .cardMyAccount{
     margin-left: 25px;
     margin-right: 25px;
+    transition: 0.4s;
 }
+.cardMyAccount:hover{
+    transform: scale(1.04);
+    box-shadow: 0px 0px 10px #0000007c;
+    transition: 0.4s;
+}
+/* Texte cartes */
 .textCardMyAccount{
     text-align: right;
     color: black;
 }
+/* Div cartes */
 .colMyAccount{
     margin-top: 50px;
 }
