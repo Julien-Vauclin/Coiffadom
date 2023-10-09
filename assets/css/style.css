@@ -339,17 +339,20 @@ body{
 }
 /* MON COMPTE */
 /* Logos */
+.containerMyAccount{
+    margin-top: 50px;
+}
 .logoMyAccount{
     width: 25%;
-    margin-left: 10px;
-    margin-top: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 .lowerRowMyAccount{
-    margin-top: 75px;
+    margin-bottom: 145px;
 }
-.upperRowMyAccount{
-    margin-top: 75px;
-}
+/* .upperRowMyAccount{
+    margin-top: 50px;
+} */
 .cardMyAccount{
     margin-left: 25px;
     margin-right: 25px;
@@ -358,6 +361,6 @@ body{
     text-align: right;
     color: black;
 }
-.containerMyAccount{
-    margin-top: 100px;
+.colMyAccount{
+    margin-top: 50px;
 }
