@@ -337,3 +337,27 @@ body{
     color: blue;
     font-size: 50px;
 }
+/* MON COMPTE */
+/* Logos */
+.logoMyAccount{
+    width: 25%;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.lowerRowMyAccount{
+    margin-top: 75px;
+}
+.upperRowMyAccount{
+    margin-top: 75px;
+}
+.cardMyAccount{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.textCardMyAccount{
+    text-align: right;
+    color: black;
+}
+.containerMyAccount{
+    margin-top: 100px;
+}
