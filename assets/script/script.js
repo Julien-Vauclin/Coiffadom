@@ -94,3 +94,4 @@ motdepasse.addEventListener('input', function () {
     secure.innerHTML = '<p style="color: deeppink">Ultra sécurisé !</p>';
   }
 });
+// MESSAGERIE
