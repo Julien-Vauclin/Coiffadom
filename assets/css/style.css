@@ -372,3 +372,8 @@ body{
 .colMyAccount{
     margin-top: 50px;
 }
+/* MESSAGERIE */
+.divButtonsMyMessages{
+    display: block;
+    background-color: deeppink;
+}

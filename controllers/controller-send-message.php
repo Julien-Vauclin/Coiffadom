@@ -1,11 +1,11 @@
+<?php session_start(); ?>
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
-<?php require_once "../models/user.php"; ?>
-<?php require_once "../models/messages.php"; ?>
-<!-- FONCTIONS -->
+<?php require_once "../../Coiffadom/models/messages.php"; ?>
+<?php var_dump($_SESSION['user']['ID']); ?>
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['messageContent'])) {
-    $userId = $_SESSION['user']['id'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userId = $_SESSION['user']['ID'];
     $messageContent = $_POST['messageContent'];
 
     if (Message::sendMessage($userId, $messageContent)) {
@@ -16,5 +16,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['messageContent'])) {
         echo "Erreur lors de l'envoi du message.";
     }
 }
-?>
-<?php include "../views/mymessages.php"; ?>
