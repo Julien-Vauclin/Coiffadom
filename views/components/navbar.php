@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
             <!-- Logo -->
-            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiff' à Dom</a>
+            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiffe que Dominique</a>
             <!-- 1ère loupe -->
             <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">

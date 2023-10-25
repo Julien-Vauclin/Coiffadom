@@ -11,11 +11,21 @@ if (!isset($_SESSION['user'])) {
     <button id="newMessageButton">Nouveau message</button>
 </div>
 <div id="newMessage">
-    <form id="newMessageForm" action="" method="POST">
+    <form id="newMessageForm" action="" method="POST" style="display: none;">
         <textarea id="messageContent" name="messageContent" placeholder="Saisissez votre message ici" required></textarea>
         <button type="submit">Envoyer</button>
     </form>
-
+</div>
+<!-- Affichage des messages envoyés -->
+<div class="sentMessages" id="sentMessages" style="display: none;">
+    <?php
+    $userId = $_SESSION['user']['ID'];
+    $messages = Message::getMessagesByUserId($userId);
+    foreach ($messages as $message) {
+        echo "<p>" . $message['MESSAGE_CONTENT'] . "</p>";
+        echo "<p>" . $message['MESSAGE_USER_ID'] . "</p>";
+    }
+    ?>
 </div>
 <div id="messageContainer"></div>
 <!-- Script pour gérer les fragments d'URL -->
@@ -42,17 +52,24 @@ if (!isset($_SESSION['user'])) {
     document.getElementById('receivedButton').addEventListener('click', function() {
         updateURLAndContent('#received');
         newMessageForm.style.display = 'none';
+        document.getElementById('sentMessages').style.display = 'none';
     });
     // Bouton "Messages envoyés"
     document.getElementById('sentButton').addEventListener('click', function() {
         updateURLAndContent('#sent');
         newMessageForm.style.display = 'none';
+        document.getElementById('sentMessages').style.display = 'block';
     });
     // Bouton "Nouveau message"
     document.getElementById('newMessageButton').addEventListener('click', function() {
-        updateURLAndContent('#newMessage');
+        var currentFragment = window.location.hash;
+        if (currentFragment !== '#newMessage') {
+            updateURLAndContent('#newMessage');
+        }
         newMessageForm.style.display = 'block';
+        document.getElementById('sentMessages').style.display = 'none';
     });
+
     // Vérifier le fragment d'URL au chargement de la page
     window.addEventListener('load', function() {
         var fragment = window.location.hash;
@@ -67,9 +84,7 @@ if (!isset($_SESSION['user'])) {
 <script>
     document.getElementById('newMessageForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Empêche la soumission du formulaire par défaut
-
         var messageContent = document.getElementById('messageContent').value;
-
         // Effectuez une requête AJAX pour envoyer le message
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'controller-send-message.php', true);
@@ -82,7 +97,6 @@ if (!isset($_SESSION['user'])) {
                 document.getElementById('messageContainer').innerHTML = response;
             }
         };
-
         // Envoyez les données du formulaire au serveur
         var data = 'messageContent=' + encodeURIComponent(messageContent);
         xhr.send(data);
