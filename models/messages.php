@@ -1,17 +1,21 @@
 <?php
 class Message
 {
+    // Fonction pour envoyer un message
     public static function sendMessage(int $userId, string $messageContent)
     {
         try {
             $pdo = Database::createInstancePDO();
-
+            $actualDate = date("Y/m/d");
+            $actualTime = date("H:i");
+            $newTime = new DateTime($actualTime);
+            $newTime->add(new DateInterval('PT2H'));
+            $newTimePlusTwo = $newTime->format("H:i");
             // Préparez la requête SQL d'insertion
-            $sql = "INSERT INTO messages (MESSAGE_USER_ID, MESSAGE_CONTENT) VALUES (?, ?)";
+            $sql = "INSERT INTO messages (MESSAGE_USER_ID, MESSAGE_CONTENT, MESSAGE_DATE, MESSAGE_TIME) VALUES (?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-
             // Exécutez la requête en passant les valeurs en tant que tableau
-            $stmt->execute([$userId, $messageContent]);
+            $stmt->execute([$userId, $messageContent, $actualDate, $newTimePlusTwo]);
 
             // Vérifiez si l'insertion a réussi
             if ($stmt->rowCount() > 0) {
@@ -24,7 +28,7 @@ class Message
             return false;
         }
     }
-    // fonction pour récupérer les messages d'un utilisateur
+    // Fonction pour récupérer les messages d'un utilisateur
     public static function getMessagesByUserId(int $userId)
     {
         try {

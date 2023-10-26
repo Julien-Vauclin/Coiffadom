@@ -22,8 +22,10 @@ if (!isset($_SESSION['user'])) {
     $userId = $_SESSION['user']['ID'];
     $messages = Message::getMessagesByUserId($userId);
     foreach ($messages as $message) {
-        echo "<p>" . $message['MESSAGE_CONTENT'] . "</p>";
-        echo "<p>" . $message['MESSAGE_USER_ID'] . "</p>";
+        // htmlspecialchars pour prevenir les failles XSS (injection de code dans les champs de formulaire)
+        echo  '<div class = "sentMessageDiv">';
+        echo '<p>' . htmlspecialchars($message['MESSAGE_CONTENT'], ENT_QUOTES, 'UTF-8') . '</p>';
+        echo '</div>';
     }
     ?>
 </div>

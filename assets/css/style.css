@@ -373,7 +373,13 @@ body{
     margin-top: 50px;
 }
 /* MESSAGERIE */
+/* Boutons */
 .divButtonsMyMessages{
     display: block;
     background-color: deeppink;
+}
+/* Messages envoyés */
+.sentMessageDiv{
+    color: red;
+    background-color: blue;
 }

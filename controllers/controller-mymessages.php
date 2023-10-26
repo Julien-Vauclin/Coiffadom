@@ -7,7 +7,8 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['messageContent'])) {
     $userId = $_SESSION['user']['id'];
     $messageContent = $_POST['messageContent'];
-
+    $actualDate = date("d/m/Y");
+    $actualTime = date("H:i");
     if (Message::sendMessage($userId, $messageContent)) {
         // Message envoyé avec succès
         echo "Message envoyé avec succès.";
