@@ -117,6 +117,17 @@ if (!isset($_SESSION['user'])) {
         if (fragment === '#sent') {
             // Afficher la section des messages envoyés
             document.getElementById('sentMessages').style.display = 'block';
+            document.getElementById('newMessageForm').style.display = 'none';
+
+        } else if (fragment === '#received') {
+            // Afficher la section des messages reçus
+            document.getElementById('sentMessages').style.display = 'none';
+
+        } else if (fragment === '#newMessage') {
+            // Afficher la section de création d'un nouveau message
+            document.getElementById('sentMessages').style.display = 'none';
+            document.getElementById('newMessageForm').style.display = 'block';
+
         } else {
             // Par défaut, afficher la section des messages reçus ou tout autre contenu par défaut
             document.getElementById('sentMessages').style.display = 'none';
