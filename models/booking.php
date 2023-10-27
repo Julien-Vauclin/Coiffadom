@@ -32,7 +32,7 @@ class Booking
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "INSERT INTO `booking` (`BOOKING_DATE`, `BOOKING_TIME`, `BOOKING_DURATION`, `BOOKING_TYPE`) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO `booking` (`BOOKING_ID`, `BOOKING_DATE`, `BOOKING_TIME`, `BOOKING_DURATION`, `BOOKING_TYPE`) VALUES (?, ?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$BOOKING_DATE, $BOOKING_TIME, $BOOKING_DURATION, $BOOKING_TYPE]);
             // On vérifie s'il y'a des résultats
@@ -53,7 +53,7 @@ class Booking
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "UPDATE `booking` SET `BOOKING_DATE` = ?, `BOOKING_TIME` = ?, `BOOKING_DURATION` = ?, `BOOKING_TYPE` = ? WHERE `BOOKING_ID` = ?";
+            $sql = "UPDATE `booking` SET `BOOKING_ID` = ?, `BOOKING_DATE` = ?, `BOOKING_TIME` = ?, `BOOKING_DURATION` = ?, `BOOKING_TYPE` = ? WHERE `BOOKING_ID` = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$BOOKING_DATE, $BOOKING_TIME, $BOOKING_DURATION, $BOOKING_TYPE, $BOOKING_ID]);
             // On vérifie s'il y'a des résultats
