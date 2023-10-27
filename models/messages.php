@@ -33,22 +33,36 @@ class Message
     {
         try {
             $pdo = Database::createInstancePDO();
-
             // Préparez la requête SQL de sélection
             $sql = "SELECT * FROM messages WHERE MESSAGE_USER_ID = ?";
             $stmt = $pdo->prepare($sql);
-
             // Exécutez la requête en passant les valeurs en tant que tableau
             $stmt->execute([$userId]);
-
             // Récupérez les résultats de la requête
             $messages = $stmt->fetchAll();
-
             // Retournez les résultats
             return $messages;
         } catch (PDOException $exception) {
             echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
             return [];
+        }
+    }
+    // Fonction pour supprimer un message
+    public static function deleteMessage(int $messageId)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            // Préparez la requête SQL pour supprimer le message par son ID
+            $sql = "DELETE FROM messages WHERE MESSAGE_ID = ?";
+            $stmt = $pdo->prepare($sql);
+            // Exécutez la requête en passant l'ID du message
+            $stmt->execute([$messageId]);
+
+            // Vérifiez si la suppression a réussi
+            return $stmt->rowCount() > 0; // Renvoie true si un message a été supprimé
+        } catch (PDOException $exception) {
+            echo "Erreur lors de la suppression du message : " . $exception->getMessage();
+            return false;
         }
     }
 }
