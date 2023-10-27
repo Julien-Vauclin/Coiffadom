@@ -5,5 +5,5 @@ if (!isset($_SESSION['user'])) {
 } ?>
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
-<p>page appointment</p>
+<p>page booking</p>
 <?php require_once "components/footer.php" ?>

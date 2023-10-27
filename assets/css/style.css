@@ -375,18 +375,157 @@ body{
 /* MESSAGERIE */
 /* Boutons */
 .divButtonsMyMessages{
-    display: block;
-    background-color: deeppink;
+    margin-top: 40px;
+    text-align: center;
+}
+/* bouton messages reçus */
+.receivedButton{
+    background-color: #E33B89;
+    color: white;
+    width: 185px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-right: 20px;
+}
+.receivedButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 195px;
+    height: 60px;
+}
+/* bouton messages envoyés */
+.sentButton{
+    background-color: #E33B89;
+    color: white;
+    width: 185px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-right: 20px;
+}
+.sentButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 195px;
+    height: 60px;
+}
+/* bouton nouveau message */
+.newMessageButton{
+    background-color: #E33B89;
+    color: white;
+    width: 185px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.newMessageButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 195px;
+    height: 60px;
 }
 /* Messages envoyés */
 .sentMessageDiv{
     color: black;
     background-color: rgba(255, 255, 255, 0.671);
+    border: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 12px;
+    margin-top: 8px;
+    padding: 10px;
 }
-.sentMessageDivTest{
+.mymessagesSentMessageDiv{
     background-color: rgba(255, 255, 255, 0.24);
     width: 80%;
     margin: 0 auto;
     margin-top: 50px;
     padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+}
+.mymessagesNoSentMessageDiv{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+    text-align: center;
+    font-size: 50px;
+}
+.mymessagesSentDeleteButton{
+    background-color: #E33B89;
+    color: white;
+    width: 120px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.mymessagesSentDeleteButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 125px;
+    height: 60px;
+}
+.dateAndDeleteButton{
+    display: flex;
+    justify-content: space-between;
+}
+.dateSentMessage {
+    margin: 0;
+    display: flex;
+    align-self: flex-end;
+}
+.mymessagesSentMessageText{
+    font-size: 20px;
+    margin-top: 5px;
+}
+/* Nouveau message */
+.messageContent{
+    margin: 0 auto;
+    width: 65%;
+    height: 160px;
+    border-radius: 12px;
+    display: flex;
+    font-size: 20px;
+    padding: 10px;
+}
+.textareaNewMessage{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+}
+.sendButtonNewMessage{
+    background-color: #E33B89;
+    color: white;
+    width: 120px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-top: 50px;
+    margin-left: 1130px;
+}
+.sendButtonNewMessage:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 125px;
+    height: 60px;
 }
