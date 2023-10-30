@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
             <!-- Logo -->
-            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Céline Coiffe que Dominique</a>
+            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Colorée par Céline</a>
             <!-- 1ère loupe -->
             <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
@@ -40,7 +40,7 @@ if (isset($_SESSION['user'])) {
                     <!-- Les liens de navigation -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Prendre RDV</a>
+                            <a class="nav-link" href="../../../Coiffadom/controllers/controller-booking.php">Prendre RDV</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">À propos de moi</a>
@@ -49,7 +49,7 @@ if (isset($_SESSION['user'])) {
                             <a class="nav-link" href="#">Créations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tarifs</a>
+                            <a class="nav-link" href="../../../Coiffadom/controllers/controller-prices.php">Tarifs</a>
                         </li>
                     </ul>
                 </div>

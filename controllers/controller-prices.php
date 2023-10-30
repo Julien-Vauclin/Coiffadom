@@ -2,4 +2,4 @@
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/user.php"; ?>
 <!-- FONCTIONS -->
-<?php include "../views/booking.php"; ?>
+<?php include "../views/prices.php"; ?>
