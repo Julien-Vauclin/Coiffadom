@@ -535,3 +535,45 @@ body{
     width: 65%;
     margin-top: 50px;
 }
+/* PRICES */
+/* Tableau des prix */
+.priceGrid{
+    border-radius: 20px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+.priceGridRow{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
+/* Mobile */
+@media screen and (max-width: 672px) 
+{
+    .priceGrid{
+        font-size: 15px;
+        width: 90%;
+        text-align: center;
+    }
+}
+/* Tablette */
+@media screen and (min-width: 672px)
+{
+    .priceGrid{
+        font-size: 17px;
+        width: 80%;
+    }
+}
+/* Desktop */
+@media screen and (min-width: 992px)
+{
+    .priceGrid{
+        width: 56%;
+        font-size: 19px;
+    }
+}
