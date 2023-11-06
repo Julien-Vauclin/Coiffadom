@@ -23,7 +23,7 @@ if (!isset($_SESSION['user'])) {
 
         <!-- Card 2 -->
         <div class="col-md-6 colMyAccount">
-            <a href="../../Coiffadom/controllers/controller-appointment.php">
+            <a href="../../Coiffadom/controllers/controller-booking.php">
                 <div class="card cardMyAccount">
                     <img src="../../Coiffadom/assets/img/appointment.png" class="card-img-top logoMyAccount" alt="Logo rendez-vous">
                     <div class="card-body textCardMyAccount">
