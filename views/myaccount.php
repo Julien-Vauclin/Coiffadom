@@ -63,5 +63,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 </div>
-
+<!-- INCLUSION JAVASCRIPT -->
+<script src="../../Coiffadom/assets/script/script.js"></script>
 <?php require_once "components/footer.php" ?>
