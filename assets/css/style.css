@@ -535,6 +535,53 @@ body{
     width: 65%;
     margin-top: 50px;
 }
+/* Div boutons */
+.divBookingButtons{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 65%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+/* Bouton réserver */
+.newBookingButton{
+    background-color: #E33B89;
+    color: white;
+    width: 185px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.newBookingButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 195px;
+    height: 60px;
+}
+/* Bouton retour */
+.returnToMyAccountButton{
+    background-color: #E33B89;
+    color: white;
+    width: 185px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.returnToMyAccountButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 195px;
+    height: 60px;
+}
 /* PRICES */
 /* Tableau des prix */
 .priceGrid{

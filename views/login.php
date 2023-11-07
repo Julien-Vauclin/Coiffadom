@@ -9,13 +9,13 @@ if (isset($_SESSION['user'])) {
     <!-- Adresse mail -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Adresse e-mail</label>
-        <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" name="mail" value="<?= isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : '' ?>">
+        <input type="email" class="form-control" id="USER_MAIL" aria-describedby="emailHelp" name="USER_MAIL" value="<?= isset($_POST['USER_MAIL']) ? htmlspecialchars($_POST['USER_MAIL']) : '' ?>">
         <?= $msgMail ?? "" ?>
     </div>
     <!-- Mot de passe -->
     <label for="motdepasse" class="form-label">Mot de passe</label>
     <div class="input-group mb-3">
-        <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="password">
+        <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="USER_PASSWORD">
         <span class="input-group-text" onclick="afficherPassword()"><i class="bi bi-eye-fill"></i></span>
     </div>
     <?= $msgMdp ?? "" ?>
@@ -23,10 +23,10 @@ if (isset($_SESSION['user'])) {
     <script>
         function afficherPassword() {
             var x = document.getElementById("motdepasse");
-            if (x.type === "password") {
+            if (x.type === "USER_PASSWORD") {
                 x.type = "text";
             } else {
-                x.type = "password";
+                x.type = "USER_PASSWORD";
             }
         }
     </script>

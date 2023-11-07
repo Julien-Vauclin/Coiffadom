@@ -5,7 +5,7 @@
 <?php
 // VARIABLES
 // Variables pour stocker les valeurs des champs du formulaire
-$lastname = $firstname = $mail = $phone = $password = $passwordConfirm = "";
+$USER_LASTNAME = $USER_FIRSTNAME = $USER_MAIL = $USER_PHONE = $USER_PASSWORD = $USER_PASSWORD_CONFIRM = "";
 // Variables pour stocker les messages d'erreur
 $lastnameError = $firstnameError = $mailError = $phoneError = $passwordError = $passwordConfirmError = "";
 // REGEX
@@ -13,69 +13,69 @@ $lastnameError = $firstnameError = $mailError = $phoneError = $passwordError = $
 $securityLevel = 0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Récupération des données du formulaire
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['firstname'];
-    $mail = $_POST['mail'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $passwordConfirm = $_POST['passwordConfirm'];
+    $USER_LASTNAME = $_POST['USER_LASTNAME'];
+    $USER_FIRSTNAME = $_POST['USER_FIRSTNAME'];
+    $USER_MAIL = $_POST['USER_MAIL'];
+    $USER_PHONE = $_POST['USER_PHONE'];
+    $USER_PASSWORD = $_POST['USER_PASSWORD'];
+    $hashedPassword = password_hash($USER_PASSWORD, PASSWORD_DEFAULT);
+    $USER_PASSWORD_CONFIRM = $_POST['USER_PASSWORD_CONFIRM'];
     // Définition des regex
     $regexLastname = '/^[a-zA-Z-éèëêàäâûüúîïìôöòÿýÉÈËÊÀÄÂÛÜÚÎÏÌÔÖÒ-]+$/';
     $regexFirstname = '/^[a-zA-Z-éèëêàäâûüúîïìôöòÿýÉÈËÊÀÄÂÛÜÚÎÏÌÔÖÒ-]+$/';
     $regexMail = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/';
     $regexPhone = '/^(06|07)\d{8}$/';
     // Fonction lastname (regex)
-    if ($lastname === "") {
+    if ($USER_LASTNAME === "") {
         $lastnameError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexLastname, $lastname)) {
+    } elseif (preg_match($regexLastname, $USER_LASTNAME)) {
         $lastnameError = "";
     } else {
         $lastnameError = "<p class='invalid'>Le nom est invalide. (Caractères spéciaux interdits, sauf \"-\")</p>";
     };
     // Fonction firstname (regex)
-    if ($firstname === "") {
+    if ($USER_FIRSTNAME === "") {
         $firstnameError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexFirstname, $firstname)) {
+    } elseif (preg_match($regexFirstname, $USER_FIRSTNAME)) {
         $firstnameError = "";
     } else {
         $firstnameError = "<p class='invalid'>Le prénom est invalide. (Caractères spéciaux interdits, sauf \"-\")</p>";
     };
     // Fonction mail (regex)
-    if ($mail === "") {
+    if ($USER_MAIL === "") {
         $mailError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexMail, $mail)) {
+    } elseif (preg_match($regexMail, $USER_MAIL)) {
         $mailError = "";
     } else {
         $mailError = "<p class='invalid'>L'adresse mail est invalide.</p>";
     };
     // Fonction phone (regex)
-    if ($phone === "") {
+    if ($USER_PHONE === "") {
         $phoneError = "<p class='invalid'>Ce champ est obligatoire.</p>";
-    } elseif (preg_match($regexPhone, $phone)) {
+    } elseif (preg_match($regexPhone, $USER_PHONE)) {
         $phoneError = "";
     } else {
         $phoneError = "<p class='invalid'>Le numéro de téléphone est invalide.</p>";
     };
     // Fonction password
-    if ($password !== $passwordConfirm) {
+    if ($USER_PASSWORD !== $USER_PASSWORD_CONFIRM) {
         $passwordError = "<p class='invalid'>Les mots de passe doivent être identiques.</p>";
     } else {
         // FORCE MOT DE PASSE
         // Vérification de la force du mot de passe (au moins "moyen")
-        if (preg_match('/[a-z]/', $password)) {
+        if (preg_match('/[a-z]/', $USER_PASSWORD)) {
             $securityLevel++;
         }
-        if (preg_match('/[A-Z]/', $password)) {
+        if (preg_match('/[A-Z]/', $USER_PASSWORD)) {
             $securityLevel++;
         }
-        if (preg_match('/[0-9]/', $password)) {
+        if (preg_match('/[0-9]/', $USER_PASSWORD)) {
             $securityLevel++;
         }
-        if (preg_match('/[@?!$]/', $password)) {
+        if (preg_match('/[@?!$]/', $USER_PASSWORD)) {
             $securityLevel++;
         }
-        if (strlen($password) >= 8) {
+        if (strlen($USER_PASSWORD) >= 8) {
             $securityLevel++;
         }
         if ($securityLevel == 0) {
@@ -93,18 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             try {
                 $db = new Database();
                 $pdo = $db->createInstancePDO();
-                $sql = "SELECT COUNT(*) AS count FROM user WHERE mail = ?";
+                $sql = "SELECT COUNT(*) AS count FROM user WHERE USER_MAIL = ?";
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$mail]);
+                $stmt->execute([$USER_MAIL]);
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 // On vérifie si l'employé existe déjà
                 if ($result['count'] > 0) {
                     echo "L'employé existe déjà. (controller-signup.php)";
                 } else {
                     // On ajoute l'employé
-                    $sql = "INSERT INTO user (lastname, firstname, mail, phone, password) VALUES (?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO user (USER_MAIL, USER_FIRSTNAME, USER_LASTNAME, USER_PHONE, USER_PASSWORD) VALUES (?, ?, ?, ?, ?)";
                     $stmt = $pdo->prepare($sql);
-                    $stmt->execute([$lastname, $firstname, $mail, $phone, $hashedPassword]);
+                    $stmt->execute([$USER_MAIL, $USER_FIRSTNAME, $USER_LASTNAME, $USER_PHONE, $hashedPassword]);
                     echo "L'employé a bien été ajouté. (controller-signup.php)";
                     echo "<script>
                     window.onload = function() {

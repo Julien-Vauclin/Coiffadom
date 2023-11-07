@@ -1,20 +1,20 @@
 <?php
 class User
 {
-    private string $lastname;
-    private string $firstname;
-    private string $mail;
-    private string $phone;
-    private string $password;
-    private string $passwordConfirm;
+    private string $USER_MAIL;
+    private string $USER_FIRSTNAME;
+    private string $USER_LASTNAME;
+    private string $USER_PHONE;
+    private string $USER_PASSWORD;
+    private string $USER_PASSWORD_CONFIRM;
 
-    public static function getInfosUser(string $mail)
+    public static function getInfosUser(string $USER_MAIL)
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "SELECT * FROM user WHERE mail = ?";
+            $sql = "SELECT * FROM user WHERE USER_MAIL = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$mail]);
+            $stmt->execute([$USER_MAIL]);
 
             // Vérifier s'il y a des résultats
             if ($stmt->rowCount() > 0) {

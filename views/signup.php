@@ -11,31 +11,31 @@ if (isset($_SESSION['user'])) {
     <!-- Nom -->
     <div class="mb-3">
         <label class="form-label">Nom</label>
-        <input class="form-control" name="lastname" value="<?php echo htmlspecialchars($lastname) ?>">
+        <input class="form-control" name="USER_LASTNAME" value="<?php echo htmlspecialchars($USER_LASTNAME) ?>">
         <?php echo $lastnameError; ?>
     </div>
     <!-- Prénom -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Prénom</label>
-        <input class="form-control" name="firstname" value="<?php echo htmlspecialchars($firstname) ?>">
+        <input class="form-control" name="USER_FIRSTNAME" value="<?php echo htmlspecialchars($USER_FIRSTNAME) ?>">
         <?php echo $firstnameError; ?>
     </div>
     <!-- Adresse mail -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Adresse mail</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="mail" value="<?php echo htmlspecialchars($mail) ?>">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="USER_MAIL" value="<?php echo htmlspecialchars($USER_MAIL) ?>">
         <?php echo $mailError; ?>
     </div>
     <!-- Téléphone -->
     <div class="mb-3">
-        <label for="phone" class="form-label">Téléphone</label>
-        <input type="text" class="form-control" name="phone" id="phone" value="<?php echo htmlspecialchars($phone) ?>">
+        <label for="USER_PHONE" class="form-label">Téléphone</label>
+        <input type="text" class="form-control" name="USER_PHONE" id="USER_PHONE" value="<?php echo htmlspecialchars($USER_PHONE) ?>">
         <?php echo $phoneError; ?>
     </div>
     <!-- Mot de passe -->
     <label for="motdepasse" class="form-label">Mot de passe</label>
     <div class="input-group mb-3">
-        <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="password">
+        <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="USER_PASSWORD">
         <span class="input-group-text" onclick="displayPassword()"><i class="bi bi-eye-fill"></i></span>
     </div>
     <?php echo $passwordError; ?>
@@ -48,7 +48,7 @@ if (isset($_SESSION['user'])) {
     <!-- Confirmation mot de passe -->
     <label for="motdepasse" class="form-label">Confirmer le mot de passe</label>
     <div class="input-group mb-3">
-        <input type="password" class="form-control" id="passwordConfirm" aria-label="Amount (to the nearest dollar)" name="passwordConfirm">
+        <input type="password" class="form-control" id="USER_PASSWORD_CONFIRM" aria-label="Amount (to the nearest dollar)" name="USER_PASSWORD_CONFIRM">
         <span class="input-group-text" onclick="displayConfirmPassword()"><i class="bi bi-eye-fill"></i></span>
         <?php echo $passwordConfirmError; ?>
     </div>

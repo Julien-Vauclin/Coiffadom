@@ -28,6 +28,10 @@
         </select>
     </div>
     <?php echo $hairstyleLengthError; ?>
+    <div class="mb-3 bookingTypeDiv">
+        <label for="hairstylePrice">Prix : </label><input readonly id="prix" name="hairstylePrice">
+        <label for="hairstyleDuration">Heure : </label><input readonly id="temps" name="hairstyleDuration">
+    </div>
     <!-- Date -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleDate" class="form-label">Date</label>
@@ -40,9 +44,10 @@
         <input type="time" class="form-control" id="hairstyleTime" name="hairstyleTime">
     </div>
     <?php echo $hairstyleTimeError; ?>
-    <label for="hairstylePrice">Prix : </label><input readonly id="prix" name="hairstylePrice">
-    <label for="hairstyleDuration">Heure : </label><input readonly id="temps" name="hairstyleDuration">
-    <button type="submit">Réserver</button>
+    <div class="divBookingButtons">
+        <button class="newBookingButton" type="submit">Réserver</button>
+        <button class="returnToMyAccountButton">Retour</button>
+    </div>
 </form>
 
 <!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux -->

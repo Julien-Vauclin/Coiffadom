@@ -10,7 +10,6 @@ if (!isset($_SESSION['user'])) {
 <!-- On initialise les messages d'erreur -->
 <?php $hairstyleTypeError = $hairstyleLengthError = $hairstyleDateError = $hairstyleTimeError = ""; ?>
 <!-- On affiche les valeurs -->
-<?php var_dump($_POST); ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $error = 0;
