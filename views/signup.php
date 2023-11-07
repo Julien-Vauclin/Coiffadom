@@ -6,7 +6,7 @@ if (isset($_SESSION['user'])) {
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
 <!-- FORMULAIRE D'INSCRIPTION -->
-<form class="myform" method="post" onsubmit="return validateForm()">
+<form class="myform" method="post">
     <?php echo $errorform; ?>
     <!-- Nom -->
     <div class="mb-3">

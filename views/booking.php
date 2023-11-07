@@ -1,12 +1,7 @@
-<?php session_start();
-if (!isset($_SESSION['user'])) {
-    header("Location: ../../Coiffadom/controllers/controller-login.php");
-    exit;
-} ?>
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
 <!-- Service de coiffure -->
-<form action="POST">
+<form method="POST" action="">
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleType" class="form-label">Service de coiffure</label>
         <select class="form-select" id="hairstyleType" name="hairstyleType">
@@ -20,6 +15,7 @@ if (!isset($_SESSION['user'])) {
             <option value="7">Coiffage</option>
         </select>
     </div>
+    <?php echo $hairstyleTypeError; ?>
     <!-- Longueur de cheveux -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleLength" class="form-label">Longueur de cheveux</label>
@@ -31,18 +27,24 @@ if (!isset($_SESSION['user'])) {
             <option value="4">Très long</option>
         </select>
     </div>
+    <?php echo $hairstyleLengthError; ?>
     <!-- Date -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleDate" class="form-label">Date</label>
         <input type="date" class="form-control" id="hairstyleDate" name="hairstyleDate">
     </div>
+    <?php echo $hairstyleDateError; ?>
     <!-- Heure -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleTime">Heure</label>
         <input type="time" class="form-control" id="hairstyleTime" name="hairstyleTime">
     </div>
+    <?php echo $hairstyleTimeError; ?>
+    <label for="hairstylePrice">Prix : </label><input readonly id="prix" name="hairstylePrice">
+    <label for="hairstyleDuration">Heure : </label><input readonly id="temps" name="hairstyleDuration">
+    <button type="submit">Réserver</button>
 </form>
-<button type="submit">Réserver</button>
+
 <!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux -->
 <script>
     document.addEventListener("change", e => {
@@ -54,25 +56,12 @@ if (!isset($_SESSION['user'])) {
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
-                        document.querySelector("#temps").innerHTML = `Temps estimé : ` + data.BOOKING_DURATION + `h`;
-                        document.querySelector("#prix").innerHTML = `Coût estimé : ` + data.BOOKING_PRICE + `€`;
-                        document.querySelector("#date").innerHTML = data.BOOKING_DATE;
-                        document.querySelector("#heure").innerHTML = data.BOOKING_TIME;
-                        console.log(data.BOOKING_DURATION)
-                        console.log(data.BOOKING_PRICE)
-                        console.log(data.BOOKING_DATE)
-                        console.log(data.BOOKING_TIME)
+                        document.querySelector("#temps").value = data.BOOKING_DURATION;
+                        document.querySelector("#prix").value = data.BOOKING_PRICE;
                     })
             }
         };
     })
 </script>
-<p id="date"></p> <!-- BOOKING_DATE -->
-<p id="heure"></p> <!-- BOOKING_TIME -->
-<p id="temps"></p> <!-- BOOKING_DURATION -->
-<?php echo $_SESSION['user']['ID'] ?> <!-- BOOKING_USER_ID -->
-<p id="prix"></p> <!-- BOOKING_COST -->
-
-
 
 <?php require_once "components/footer.php" ?>
