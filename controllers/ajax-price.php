@@ -9,8 +9,8 @@ if (isset($_GET['hairstyleType']) && isset($_GET['hairstyleLength'])) {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$hairstyleType, $hairstyleLength]);
     $result = $stmt->fetch();
-    $tessst = json_encode($result);
-    echo ($tessst);
+    $encodedResult = json_encode($result);
+    echo ($encodedResult);
 } else {
     echo "Erreur lors de la récup";
 }
