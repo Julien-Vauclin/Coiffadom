@@ -498,7 +498,7 @@ body{
 /* Nouveau message */
 .messageContent{
     margin: 0 auto;
-    width: 65%;
+    width: 100%;
     height: 160px;
     border-radius: 12px;
     display: flex;
@@ -507,8 +507,9 @@ body{
 }
 .textareaNewMessage{
     margin: 0 auto;
-    text-align: center;
+    text-align: end;
     margin-top: 50px;
+    width: 65%;
 }
 .sendButtonNewMessage{
     background-color: #E33B89;
@@ -519,8 +520,8 @@ body{
     border: none;
     font-size: 20px;
     transition: 0.4s;
-    margin-top: 50px;
-    margin-left: 1130px;
+    margin-top: 25px;
+    margin-left: 300px;
 }
 .sendButtonNewMessage:hover{
     background-color: rgb(33, 126, 247);

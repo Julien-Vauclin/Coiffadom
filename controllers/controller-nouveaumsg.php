@@ -3,19 +3,23 @@ if (!isset($_SESSION['user'])) {
     header("Location: ../../Coiffadom/controllers/controller-login.php");
     exit;
 } ?>
-<?= "aurevoir" ?>
-<?php var_dump($_SESSION); ?>
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
-<?php require_once "../../Coiffadom/models/messages.php"; ?>
+<?php require_once "../models/user.php"; ?>
+<?php require_once "../models/messages.php"; ?>
+<?= "bonjourrrrrNVELLEPOAGE" ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($_POST);
     $userId = $_SESSION['user']['ID'];
     $messageContent = $_POST['messageContent'];
-
+    $actualDate = date("d/m/Y");
+    $actualTime = date("H:i");
     if (Message::sendMessage($userId, $messageContent)) {
         // Message envoyé avec succès
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         echo "<br>";
         echo "<br>";
         echo "<br>";
@@ -33,3 +37,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<?php include "../views/nouveaumsg.php"; ?>

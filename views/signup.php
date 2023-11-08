@@ -7,30 +7,30 @@ if (isset($_SESSION['user'])) {
 <?php require_once "components/navbar.php" ?>
 <!-- FORMULAIRE D'INSCRIPTION -->
 <form class="myform" method="post">
-    <?php echo $errorform; ?>
+    <?= $errorform; ?>
     <!-- Nom -->
     <div class="mb-3">
         <label class="form-label">Nom</label>
-        <input class="form-control" name="USER_LASTNAME" value="<?php echo htmlspecialchars($USER_LASTNAME) ?>">
-        <?php echo $lastnameError; ?>
+        <input class="form-control" name="USER_LASTNAME" value="<?= htmlspecialchars($USER_LASTNAME) ?>">
+        <?= $lastnameError; ?>
     </div>
     <!-- Prénom -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Prénom</label>
-        <input class="form-control" name="USER_FIRSTNAME" value="<?php echo htmlspecialchars($USER_FIRSTNAME) ?>">
-        <?php echo $firstnameError; ?>
+        <input class="form-control" name="USER_FIRSTNAME" value="<?= htmlspecialchars($USER_FIRSTNAME) ?>">
+        <?= $firstnameError; ?>
     </div>
     <!-- Adresse mail -->
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Adresse mail</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="USER_MAIL" value="<?php echo htmlspecialchars($USER_MAIL) ?>">
-        <?php echo $mailError; ?>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="USER_MAIL" value="<?= htmlspecialchars($USER_MAIL) ?>">
+        <?= $mailError; ?>
     </div>
     <!-- Téléphone -->
     <div class="mb-3">
         <label for="USER_PHONE" class="form-label">Téléphone</label>
-        <input type="text" class="form-control" name="USER_PHONE" id="USER_PHONE" value="<?php echo htmlspecialchars($USER_PHONE) ?>">
-        <?php echo $phoneError; ?>
+        <input type="text" class="form-control" name="USER_PHONE" id="USER_PHONE" value="<?= htmlspecialchars($USER_PHONE) ?>">
+        <?= $phoneError; ?>
     </div>
     <!-- Mot de passe -->
     <label for="motdepasse" class="form-label">Mot de passe</label>
@@ -38,7 +38,7 @@ if (isset($_SESSION['user'])) {
         <input type="password" class="form-control" id="motdepasse" aria-label="Amount (to the nearest dollar)" name="USER_PASSWORD">
         <span class="input-group-text" onclick="displayPassword()"><i class="bi bi-eye-fill"></i></span>
     </div>
-    <?php echo $passwordError; ?>
+    <?= $passwordError; ?>
 
     <!-- Force mot de passe -->
     <div class="power" id="power">
@@ -50,7 +50,7 @@ if (isset($_SESSION['user'])) {
     <div class="input-group mb-3">
         <input type="password" class="form-control" id="USER_PASSWORD_CONFIRM" aria-label="Amount (to the nearest dollar)" name="USER_PASSWORD_CONFIRM">
         <span class="input-group-text" onclick="displayConfirmPassword()"><i class="bi bi-eye-fill"></i></span>
-        <?php echo $passwordConfirmError; ?>
+        <?= $passwordConfirmError; ?>
     </div>
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
