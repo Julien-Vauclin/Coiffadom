@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
     <div class="row upperRowMyAccount">
         <!-- Card 1 -->
         <div class="col-md-6 colMyAccount">
-            <a href="../../Coiffadom/controllers/controller-mymessages.php">
+            <a href="../../Coiffadom/controllers/controller-received-messages.php">
                 <div class="card cardMyAccount">
                     <img src="../../Coiffadom/assets/img/message.png" class="card-img-top logoMyAccount" alt="Logo messagerie">
                     <div class="card-body textCardMyAccount">

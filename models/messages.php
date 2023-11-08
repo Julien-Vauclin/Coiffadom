@@ -9,7 +9,7 @@ class Message
             $actualDate = date("Y/m/d");
             $actualTime = date("H:i");
             $newTime = new DateTime($actualTime);
-            $newTime->add(new DateInterval('PT2H'));
+            $newTime->add(new DateInterval('PT1H'));
             $newTimePlusTwo = $newTime->format("H:i");
             // Préparez la requête SQL d'insertion
             $sql = "INSERT INTO messages (MESSAGE_USER_ID, MESSAGE_CONTENT, MESSAGE_DATE, MESSAGE_TIME) VALUES (?, ?, ?, ?)";
