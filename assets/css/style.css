@@ -649,3 +649,30 @@ body{
         font-size: 19px;
     }
 }
+/* CREATIONS */
+/* Images coupes */
+.haircutRow{
+    margin-top: 50px;
+}
+.card{
+    margin: 0 auto;
+    width: 550px;
+    padding-top: 20px;
+    height: 100%;
+}
+.image{
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.creationsImgDescription{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    background-color: rgba(255, 20, 145, 0.308);
+    border-radius: 10px;
+    width: 95%;
+}
