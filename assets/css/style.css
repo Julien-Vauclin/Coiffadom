@@ -676,3 +676,11 @@ body{
     border-radius: 10px;
     width: 95%;
 }
+/* ADMIN */
+/* Admin booking */
+.tableAdminBooking{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 96%;
+    border: black;
+}

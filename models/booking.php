@@ -10,7 +10,7 @@ class BookingAdmin
     private string $BOOKING_COST;
     private string $HAIR_LENGTH_ID;
     private string $BOOKING_STATUS_ID;
-    // Fonction qui permet de voir les réservations
+    // Voir reservations
     public static function getAllBookings()
     {
         try {
@@ -18,13 +18,52 @@ class BookingAdmin
             $sql = "SELECT *
             FROM `booking` 
             INNER JOIN `user` ON `BOOKING_USER_ID` = `ID` 
-            INNER JOIN `hair_length` ON `booking`.`HAIR_LENGTH_ID` = `hair_length`.`ID`";
+            INNER JOIN `hair_length` ON `booking`.`HAIR_LENGTH_ID` = `hair_length`.`ID`
+            INNER JOIN `booking_type` ON `booking`.`BOOKING_TYPE_ID` = `booking_type`.`ID`";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
-            // On vérifie s'il y'a des résultats    
             if ($stmt->rowCount() > 0) {
-                // On retourne les résultats sous forme de tableau
                 return $stmt->fetchAll();
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            echo "Erreur lors de la récup";
+            return false;
+        }
+    }
+    // Accepter reservation
+    public static function acceptBooking($id)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "UPDATE `booking` SET `BOOKING_STATUS_ID` = 2 WHERE `booking`.`BOOKING_ID` = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            echo "Erreur lors de la récup";
+            return false;
+        }
+    }
+    // Refuser reservation
+    public static function refuseBooking($id)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "UPDATE `booking` SET `BOOKING_STATUS_ID` = 3 WHERE `booking`.`BOOKING_ID` = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                return true;
             } else {
                 return false;
             }
