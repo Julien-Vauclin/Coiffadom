@@ -39,9 +39,14 @@ if (isset($_SESSION['user'])) {
                 <div class="offcanvas-body">
                     <!-- Les liens de navigation -->
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../../Coiffadom/controllers/controller-booking.php">Prendre RDV</a>
-                        </li>
+                        <!-- Verif admin -->
+                        <?php
+                        if (isset($_SESSION['user']) && ($_SESSION['user']['USER_ADMIN'] == 1)) {
+                            echo "<li class='nav-item'><a class='nav-link' href='../../../Coiffadom/controllers/controller-admin-booking.php'>Voir les RDV</a></li>";
+                        } else {
+                            echo "<li class='nav-item'><a class='nav-link' href='../../../Coiffadom/controllers/controller-booking.php'>Prendre RDV</a></li>";
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">À propos de moi</a>
                         </li>
