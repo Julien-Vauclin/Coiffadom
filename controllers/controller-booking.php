@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     };
     if ($error === 0) {
         Booking::createBooking($hairstyleDate, $hairstyleTime, $hairstyleDuration, $_SESSION['user']['ID'], $hairstyleType, $hairstylePrice, $hairstyleLength);
+        header("Location: controller-myaccount.php");
     }
 }
 ?>

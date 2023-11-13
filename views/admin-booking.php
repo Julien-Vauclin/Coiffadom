@@ -1,7 +1,5 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
-
-<!-- view -->
 <?php
 $displayAllBookings = BookingAdmin::getAllBookings();
 ?>
@@ -27,14 +25,44 @@ $displayAllBookings = BookingAdmin::getAllBookings();
                 <td><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
                 <td>
                     <form action="" method="POST">
-                        <button name="accept" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-success">Accepter</button>
-                        <button name="refuse" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger">Refuser</button>
+                        <button name="accept" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-success" onclick="acceptBooking()">Accepter</button>
+                        <button name="refuse" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger" onclick="refuseBooking()">Refuser</button>
                     </form>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
-<!-- INCLUSION JAVASCRIPT -->
-<script src="../../Coiffadom/assets/script/script.js"></script>
+<!-- Accepter RDV -->
+<script>
+    function acceptBooking(bookingId) {
+        if (confirm("Voulez-vous vraiment accepter ce rendez-vous ?")) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'controller-accept-booking.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    location.reload();
+                }
+            };
+            xhr.send('bookingId=' + bookingId);
+        }
+    }
+</script>
+<!-- Refuser RDV -->
+<script>
+    function refuseBooking(bookingId) {
+        if (confirm("Voulez-vous vraiment refuser ce rendez-vous ?")) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'controller-refuse-booking.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    location.reload();
+                }
+            };
+            xhr.send('bookingId=' + bookingId);
+        }
+    }
+</script>
 <?php require_once "components/footer.php" ?>

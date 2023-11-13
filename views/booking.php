@@ -81,5 +81,16 @@
         };
     })
 </script>
-
+<!-- Confirmation de la réservation -->
+<script>
+    document.addEventListener("click", e => {
+        if (e.target.classList.contains("newBookingButton")) {
+            if (confirm("Êtes-vous sûr de vouloir réserver ?")) {
+                alert("Votre réservation a bien été prise en compte !");
+            } else {
+                e.preventDefault();
+            }
+        }
+    })
+</script>
 <?php require_once "components/footer.php" ?>
