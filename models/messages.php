@@ -1,6 +1,11 @@
 <?php
 class Message
 {
+    private string $MESSAGE_ID;
+    private string $MESSAGE_USER_ID;
+    private string $MESSAGE_CONTENT;
+    private string $MESSAGE_DATE;
+    private string $MESSAGE_TIME;
     // Fonction pour envoyer un message
     public static function sendMessage(int $userId, string $messageContent)
     {
@@ -33,18 +38,23 @@ class Message
     {
         try {
             $pdo = Database::createInstancePDO();
-            // Préparez la requête SQL de sélection
-            $sql = "SELECT * FROM messages WHERE MESSAGE_USER_ID = ?";
+            // Préparez la requête SQL pour récupérer les messages d'un utilisateur
+            $sql = "SELECT * FROM messages WHERE MESSAGE_USER_ID = ? ";
             $stmt = $pdo->prepare($sql);
-            // Exécutez la requête en passant les valeurs en tant que tableau
+            // Exécutez la requête en passant l'ID de l'utilisateur
             $stmt->execute([$userId]);
-            // Récupérez les résultats de la requête
-            $messages = $stmt->fetchAll();
-            // Retournez les résultats
-            return $messages;
+
+            // Vérifiez si la requête a renvoyé des résultats
+            if ($stmt->rowCount() > 0) {
+                // Récupérez les résultats sous forme de tableau associatif
+                $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $messages; // Renvoie les messages
+            } else {
+                return []; // Renvoie un tableau vide
+            }
         } catch (PDOException $exception) {
             echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
-            return [];
+            return []; // Renvoie un tableau vide
         }
     }
     // Fonction pour supprimer un message
@@ -63,6 +73,30 @@ class Message
         } catch (PDOException $exception) {
             echo "Erreur lors de la suppression du message : " . $exception->getMessage();
             return false;
+        }
+    }
+    // Fonction pour récupérer tous les messages envoyés
+    public static function getAllMessages()
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            // Préparez la requête SQL pour récupérer tous les messages
+            $sql = "SELECT * FROM `messages` INNER JOIN `user` ON `MESSAGE_USER_ID` = `ID`";
+            $stmt = $pdo->prepare($sql);
+            // Exécutez la requête
+            $stmt->execute();
+
+            // Vérifiez si la requête a renvoyé des résultats
+            if ($stmt->rowCount() > 0) {
+                // Récupérez les résultats sous forme de tableau associatif
+                $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $messages; // Renvoie les messages
+            } else {
+                return []; // Renvoie un tableau vide
+            }
+        } catch (PDOException $exception) {
+            echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
+            return []; // Renvoie un tableau vide
         }
     }
 }

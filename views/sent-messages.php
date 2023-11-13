@@ -6,7 +6,7 @@
         <button id="receivedButton" class="receivedButton">Messages reçus</button>
     </a>
     <a href="../../Coiffadom/controllers/controller-sent-messages.php">
-        <button id="sentButton" class="sentButton">Messages envoyés</button>
+        <button id="sentButton" class="sentButton">Messages envoyés<span class="badge badge-secondary">nbr</span></button>
     </a>
     <a href="../../Coiffadom/controllers/controller-new-message.php">
         <button id="newMessageButton" class="newMessageButton">Nouveau message</button>

@@ -509,11 +509,15 @@ body{
 .dateAndDeleteButton{
     display: flex;
     justify-content: space-between;
+    padding-bottom: none;
+    margin-bottom: none;
 }
 .dateSentMessage {
     margin: 0;
     display: flex;
     align-self: flex-end;
+    margin-bottom: 20px;
+    background-color: red;
 }
 .mymessagesSentMessageText{
     font-size: 20px;
