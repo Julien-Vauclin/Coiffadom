@@ -7,7 +7,7 @@ class User
     private string $USER_PHONE;
     private string $USER_PASSWORD;
     private string $USER_PASSWORD_CONFIRM;
-
+    // Fonction qui permet d'avoir les informations sur un utilisateur
     public static function getInfosUser(string $USER_MAIL)
     {
         try {
@@ -15,13 +15,10 @@ class User
             $sql = "SELECT * FROM user WHERE USER_MAIL = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$USER_MAIL]);
-
-            // Vérifier s'il y a des résultats
             if ($stmt->rowCount() > 0) {
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $result;
             } else {
-                // Aucun résultat trouvé pour l'adresse e-mail
                 return false;
             }
         } catch (PDOException $exception) {
@@ -29,6 +26,7 @@ class User
             return false;
         }
     }
+
     // Fonction qui permet d'avoir la liste de tous les utilisateurs
     public static function getAllUsers()
     {
