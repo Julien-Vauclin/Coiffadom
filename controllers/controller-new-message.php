@@ -9,69 +9,69 @@ if (!isset($_SESSION['user'])) {
 <?php require_once "../models/messages.php"; ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_SESSION['user']['USER_ADMIN'] == !1) {
+    if ($_SESSION['user']['USER_ADMIN'] != 1) {
         $userId = $_SESSION['user']['ID'];
         $messageContent = $_POST['messageContent'];
         $actualDate = date("d/m/Y");
         $actualTime = date("H:i");
         if (Message::sendMessage($userId, $messageContent)) {
             echo "<script>
-        window.onload = function() {
-            // On cache le formulaire
-            var form = document.querySelector('form');
-            form.style.display = 'none';
-            // On redirige l'utilisateur vers la page d'accueil
-            setTimeout(function() {
-                window.location.href = '../../Coiffadom/controllers/controller-received-messages.php';
-            }, 3000);
-            // On affiche le décompte
-            var count = 3;
-            var countDown = document.createElement('p');
-            countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes.PAS ADMIN</p>';
-            document.body.appendChild(countDown);
-            // On redirige l'utilisateur vers la page de Connexion
-            var interval = setInterval(function() {
-                count--;
-                countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes. PAS ADMIN</p>';
-                if (count === 0) {
-                    clearInterval(interval);
-                }
-            }, 1000);
-        };
-    </script>";
+            window.onload = function() {
+                // On cache le formulaire
+                var form = document.querySelector('form');
+                form.style.display = 'none';
+                // On redirige l'utilisateur vers la page d'accueil
+                setTimeout(function() {
+                    window.location.href = '../../Coiffadom/controllers/controller-received-messages.php';
+                }, 3000);
+                // On affiche le décompte
+                var count = 3;
+                var countDown = document.createElement('p');
+                countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
+                document.body.appendChild(countDown);
+                // On redirige l'utilisateur vers la page de Connexion
+                var interval = setInterval(function() {
+                    count--;
+                    countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
+                    if (count === 0) {
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            };
+        </script>";
         } else {
             echo '<script>alert("Erreur lors de l\'envoi du message.");</script>';
         }
-    } else if ($_SESSION['user']['USER_ADMIN'] == 1) {
-        $userId = $_POST['user'];
+    } else {
+        $destinataireID = $_POST['MESSAGE_RECIPIENT_ID'];
         $messageContent = $_POST['messageContent'];
         $actualDate = date("d/m/Y");
         $actualTime = date("H:i");
-        if (Message::sendMessageToUser($userId, $messageContent)) {
+        if (Message::sendMessageToUser($destinataireID, $messageContent, $destinataireID)) {
             echo "<script>
-        window.onload = function() {
-            // On cache le formulaire
-            var form = document.querySelector('form');
-            form.style.display = 'none';
-            // On redirige l'utilisateur vers la page d'accueil
-            setTimeout(function() {
-                window.location.href = '../../Coiffadom/controllers/controller-received-messages.php';
-            }, 3000);
-            // On affiche le décompte
-            var count = 3;
-            var countDown = document.createElement('p');
-            countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes. ADMIN</p>';
-            document.body.appendChild(countDown);
-            // On redirige l'utilisateur vers la page de Connexion
-            var interval = setInterval(function() {
-                count--;
-                countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes. ADMIN</p>';
-                if (count === 0) {
-                    clearInterval(interval);
-                }
-            }, 1000);
-        };
-    </script>";
+            window.onload = function() {
+                // On cache le formulaire
+                var form = document.querySelector('form');
+                form.style.display = 'none';
+                // On redirige l'utilisateur vers la page d'accueil
+                setTimeout(function() {
+                    window.location.href = '../../Coiffadom/controllers/controller-received-messages.php';
+                }, 3000);
+                // On affiche le décompte
+                var count = 3;
+                var countDown = document.createElement('p');
+                countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
+                document.body.appendChild(countDown);
+                // On redirige l'utilisateur vers la page de Connexion
+                var interval = setInterval(function() {
+                    count--;
+                    countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre message a bien été envoyé ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
+                    if (count === 0) {
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            };
+        </script>";
         } else {
             echo '<script>alert("Erreur lors de l\'envoi du message.");</script>';
         }

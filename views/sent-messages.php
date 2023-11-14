@@ -16,7 +16,7 @@
 <div class="sentMessages" id="sentMessages">
     <?php
     $userId = $_SESSION['user']['ID'];
-    $messages = Message::getMessagesByUserId($userId);
+    $messages = Message::getSentMessagesByUserId($userId);
     if (empty($messages)) {
         echo '<div class = "mymessagesSentMessageDiv">';
         echo '<p class = "mymessagesSentMessageText" style = "text-align: center; font-size: 26px;">' . "Vous n'avez pas encore envoyé de message." . '</p>';

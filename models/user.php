@@ -49,18 +49,4 @@ class User
             return false;
         }
     }
-    // Fonction qui permet d'envoyer un message a un utilisateur en fonction de son ID
-    public static function sendMessageToUser(string $messageContent, int $userId)
-    {
-        try {
-            $pdo = Database::createInstancePDO();
-            $sql = "INSERT INTO messages (MESSAGE_CONTENT, MESSAGE_USER_ID) VALUES (?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$messageContent, $userId]);
-            return $stmt->rowCount() > 0;
-        } catch (PDOException $exception) {
-            echo "Erreur lors de l'envoi du message : " . $exception->getMessage();
-            return false;
-        }
-    }
 }

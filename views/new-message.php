@@ -19,6 +19,16 @@
             <textarea id="messageContent" class="messageContent" name="messageContent" placeholder="Saisissez votre message ici" required></textarea>
             <button type="submit" class="sendButtonNewMessage">Envoyer</button>
         </div>
+        <?php if ($_SESSION['user']['USER_ADMIN'] == 1) { ?>
+            <?php $infosUser = User::getAllUsers($_SESSION['user']); ?>
+            <label for="MESSAGE_RECIPIENT_ID" class="form-label">Destinataire :</label>
+            <select name="MESSAGE_RECIPIENT_ID" id="MESSAGE_RECIPIENT_ID" class="selectInfosUser">
+                <option value="" selected disabled>Choisissez un destinataire</option>
+                <?php foreach (User::getAllUsers() as $user) { ?>
+                    <option value="<?= $user['ID'] ?>"><?= $user['USER_FIRSTNAME'] ?> <?= $user['USER_LASTNAME'] ?></option>
+                <?php } ?>
+            </select>
+        <?php } ?>
     </form>
 </div>
 <!-- Confirmation d'envoi du nouveau message -->
@@ -33,15 +43,8 @@
         });
     });
 </script>
-<?php if ($_SESSION['user']['USER_ADMIN'] == 1) { ?>
-    <?php $infosUser = User::getAllUsers($_SESSION['user']); ?>
-    <select name="user" id="user" class="selectInfosUser">
-        <option value="" selected disabled>Choisissez un destinataire</option>
-        <?php foreach (User::getAllUsers() as $user) { ?>
-            <option value="<?= $user['ID'] ?>"><?= $user['USER_FIRSTNAME'] ?> <?= $user['USER_LASTNAME'] ?></option>
-        <?php } ?>
-    </select>
-<?php } ?>
+
+
 <!-- INCLUSION JAVASCRIPT -->
 <script src="../../Coiffadom/assets/script/script.js"></script>
 <?php require_once "components/footer.php" ?>
