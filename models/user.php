@@ -29,4 +29,38 @@ class User
             return false;
         }
     }
+    // Fonction qui permet d'avoir la liste de tous les utilisateurs
+    public static function getAllUsers()
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "SELECT * FROM user";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $result;
+            } else {
+                return false;
+            }
+        } catch (PDOException $exception) {
+            echo "Erreur lors de la récupération des informations de l'employé : " . $exception->getMessage();
+            return false;
+        }
+    }
+    // Fonction qui permet d'envoyer un message a un utilisateur en fonction de son ID
+    public static function sendMessageToUser(string $messageContent, int $userId)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "INSERT INTO messages (MESSAGE_CONTENT, MESSAGE_USER_ID) VALUES (?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$messageContent, $userId]);
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $exception) {
+            echo "Erreur lors de l'envoi du message : " . $exception->getMessage();
+            return false;
+        }
+    }
 }

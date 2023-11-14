@@ -517,7 +517,6 @@ body{
     display: flex;
     align-self: flex-end;
     margin-bottom: 20px;
-    background-color: red;
 }
 .mymessagesSentMessageText{
     font-size: 20px;
@@ -687,4 +686,25 @@ body{
     margin-top: 50px;
     width: 96%;
     border: black;
+}
+/* Admin messages reçus */
+.receivedMessagesAdminDeleteButton{
+    background-color: #E33B89;
+    color: white;
+    width: 120px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+.receivedMessagesAdminDeleteButton:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 125px;
+    height: 60px;
+}
+.selectInfosUser{
+    width: 25%;
 }

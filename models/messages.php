@@ -50,11 +50,11 @@ class Message
                 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 return $messages; // Renvoie les messages
             } else {
-                return []; // Renvoie un tableau vide
+                return [];
             }
         } catch (PDOException $exception) {
             echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
-            return []; // Renvoie un tableau vide
+            return [];
         }
     }
     // Fonction pour supprimer un message
@@ -97,6 +97,25 @@ class Message
         } catch (PDOException $exception) {
             echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
             return []; // Renvoie un tableau vide
+        }
+    }
+    // Fonction pour compter les messages reçus
+    public static function countMessages()
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "SELECT COUNT(*) as total_messages FROM messages;";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                $messages = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $messages['total_messages'];
+            } else {
+                return [];
+            }
+        } catch (PDOException $exception) {
+            echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
+            return [];
         }
     }
 }

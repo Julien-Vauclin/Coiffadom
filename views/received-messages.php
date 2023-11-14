@@ -3,8 +3,20 @@
 <!-- Boutons -->
 <div class="divButtonsMyMessages">
     <a href="../../Coiffadom/controllers/controller-received-messages.php">
-        <button id="receivedButton" class="receivedButton">Messages reçus</button>
+        <button id="receivedButton" type="button" class="receivedButton btn btn-primary position-relative">
+            Messages reçus
+            <?php
+            if ($_SESSION['user']['USER_ADMIN'] == 1) {
+                if (message::countMessages() != 0) {
+                    echo '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">';
+                }
+            }
+            ?>
+            <span class="visually-hidden">New alerts</span>
+            </span>
+        </button>
     </a>
+
     <a href="../../Coiffadom/controllers/controller-sent-messages.php">
         <button id="sentButton" class="sentButton">Messages envoyés</button>
     </a>
@@ -15,26 +27,27 @@
 <!-- Affichage des messages reçus -->
 <div class="receivedMessages" id="receivedMessages">
     <?php
-    $userId = $_SESSION['user']['ID'];
-    $messages = Message::getAllMessages();
-    if (empty($messages)) {
-        echo '<div class = "mymessagesReceivedMessageDiv">';
-        echo '<p class = "mymessagesReceivedMessageText" style = "text-align: center; font-size: 26px;">' . "Vous n'avez pas encore reçu de message." . '</p>';
-        echo '</div>';
-    } else {
-        echo '<div class = "mymessagesReceivedMessageDiv">';
-        foreach ($messages as $message) {
-            // htmlspecialchars pour prevenir les failles XSS (injection de code dans les champs de formulaire)
-            echo  '<div class = "receivedMessageDiv">';
-            echo '<p class = "mymessagesReceivedMessageText">' . htmlspecialchars($message['MESSAGE_CONTENT'], ENT_QUOTES, 'UTF-8') . '</p>';
-            echo '<div class = "dateAndDeleteButton">';
-            echo 'Reçu le ' . htmlspecialchars($message['MESSAGE_DATE'] = date("d/m/Y", strtotime($message['MESSAGE_DATE'])), ENT_QUOTES, 'UTF-8') . " à " . htmlspecialchars($message['MESSAGE_TIME'], ENT_QUOTES, 'UTF-8') . '<br>' . 'De la part de ' . htmlspecialchars($message['USER_FIRSTNAME'], ENT_QUOTES, 'UTF-8') . ' ' . htmlspecialchars($message['USER_LASTNAME'], ENT_QUOTES, 'UTF-8');
-            echo '<button class="mymessagesReceivedDeleteButton" onclick="deleteMessage(' . $message['MESSAGE_ID'] . ')">Supprimer</button>';
+    if ($_SESSION['user']['USER_ADMIN'] == 1) {
+        $userId = $_SESSION['user']['ID'];
+        $messages = Message::getAllMessages();
+        if (empty($messages)) {
+            echo '<div class = "mymessagesReceivedMessageDiv">';
+            echo '<p class = "mymessagesReceivedMessageText" style = "text-align: center; font-size: 26px;">' . "Vous n'avez pas encore reçu de message." . '</p>';
             echo '</div>';
-            echo '</div>';
+        } else {
+            echo '<div class = "mymessagesReceivedMessageDiv">';
+            foreach ($messages as $message) {
+                echo  '<div class = "receivedMessageDiv">';
+                echo '<p class = "mymessagesReceivedMessageText">' . htmlspecialchars($message['MESSAGE_CONTENT'], ENT_QUOTES, 'UTF-8') . '</p>';
+                echo '<div class = "dateAndDeleteButton">';
+                echo 'Reçu le ' . htmlspecialchars($message['MESSAGE_DATE'] = date("d/m/Y", strtotime($message['MESSAGE_DATE'])), ENT_QUOTES, 'UTF-8') . " à " . htmlspecialchars($message['MESSAGE_TIME'], ENT_QUOTES, 'UTF-8') . '<br>' . 'De la part de ' . htmlspecialchars($message['USER_FIRSTNAME'], ENT_QUOTES, 'UTF-8') . ' ' . htmlspecialchars($message['USER_LASTNAME'], ENT_QUOTES, 'UTF-8');
+                echo '<button class="receivedMessagesAdminDeleteButton" onclick="deleteMessage(' . $message['MESSAGE_ID'] . ')">Supprimer</button>';
+                echo '</div>';
+                echo '</div>';
+            }
         }
+        echo '</div>';
     }
-    echo '</div>';
     ?>
 </div>
 <!-- Suppression message -->
