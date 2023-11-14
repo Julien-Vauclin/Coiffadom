@@ -43,11 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<script>alert("Erreur lors de l\'envoi du message.");</script>';
         }
     } else {
+        $userId = $_SESSION['user']['ID'];
         $destinataireID = $_POST['MESSAGE_RECIPIENT_ID'];
         $messageContent = $_POST['messageContent'];
         $actualDate = date("d/m/Y");
         $actualTime = date("H:i");
-        if (Message::sendMessageToUser($destinataireID, $messageContent, $destinataireID)) {
+        if (Message::sendMessageToUser($userId, $messageContent, $destinataireID)) {
             echo "<script>
             window.onload = function() {
                 // On cache le formulaire

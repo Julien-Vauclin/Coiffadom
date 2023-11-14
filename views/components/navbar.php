@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
             <!-- Logo -->
             <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Colorée par Céline</a>
             <!-- 1ère loupe -->
-            <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
+            <!-- <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
                 <div class="search-content">
                     <div class="search-bar">
@@ -25,7 +25,7 @@ if (isset($_SESSION['user'])) {
                         <button onclick="closeSearchPopup()">Fermer</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@ if (isset($_SESSION['user'])) {
                 </div>
             </div>
             <!-- 2ème loupe -->
-            <button class="loupe2" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
+            <!-- <button class="loupe2" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
             <div class="search-popup">
                 <div class="search-content">
                     <div class="search-bar">
@@ -68,7 +68,12 @@ if (isset($_SESSION['user'])) {
                         <button onclick="closeSearchPopup()">Fermer</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- Nom & Prénom -->
+            <?php if (isset($_SESSION['user'])) {
+                echo "Bonjour " . "<b>" . $_SESSION['user']['USER_FIRSTNAME'] . " " . $_SESSION['user']['USER_LASTNAME'] . "</b>";
+            }
+            ?>
             <!-- Bouton Connexion/Inscription -->
             <div class="div-navbar-login-button custom-select">
                 <button id="select-button" class="navbar-login-button select-button">

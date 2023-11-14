@@ -6,17 +6,16 @@
         <button id="receivedButton" type="button" class="receivedButton btn btn-primary position-relative">
             Messages reçus
             <?php
-            if ($_SESSION['user']['USER_ADMIN'] == 1) {
-                if (message::countMessages() != 0) {
-                    echo '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">';
-                }
+            $recipientId = $_SESSION['user']['ID'];
+            if (message::countMessages([$recipientId]) > 0) {
+                echo '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">';
+                echo message::countMessages([$recipientId]);
             }
             ?>
             <span class="visually-hidden">New alerts</span>
             </span>
         </button>
     </a>
-
     <a href="../../Coiffadom/controllers/controller-sent-messages.php">
         <button id="sentButton" class="sentButton">Messages envoyés</button>
     </a>

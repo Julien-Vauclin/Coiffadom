@@ -34,6 +34,29 @@ class Message
             return false;
         }
     }
+    // Fonction qui permet d'envoyer un message a un utilisateur en fonction de son ID
+    public static function sendMessageToUser(int $userId, string $messageContent, int $messageRecipientId)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $actualDate = date("Y/m/d");
+            $actualTime = date("H:i");
+            $newTime = new DateTime($actualTime);
+            $newTime->add(new DateInterval('PT1H'));
+            $newTimePlusTwo = $newTime->format("H:i");
+            $sql = "INSERT INTO messages (MESSAGE_USER_ID, MESSAGE_CONTENT, MESSAGE_DATE, MESSAGE_TIME, MESSAGE_RECIPIENT_ID) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$userId, $messageContent, $actualDate, $newTimePlusTwo, $messageRecipientId]);
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $exception) {
+            echo "Erreur lors de l'envoi du message : " . $exception->getMessage();
+            return false;
+        }
+    }
     // Fonction pour récupérer les messages d'un utilisateur
     public static function getMessagesByUserId(int $userId)
     {
@@ -61,7 +84,11 @@ class Message
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "SELECT * FROM messages WHERE MESSAGE_USER_ID = ?";
+            $sql = "SELECT * FROM messages 
+            INNER JOIN user
+            ON `MESSAGE_USER_ID` = `ID`
+            WHERE `MESSAGE_USER_ID` = ?
+            AND `MESSAGE_RECIPIENT_ID` != MESSAGE_USER_ID";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$userId]);
             if ($stmt->rowCount() > 0) {
@@ -94,13 +121,13 @@ class Message
         }
     }
     // Fonction pour compter les messages reçus
-    public static function countMessages()
+    public static function countMessages($recipientId)
     {
         try {
             $pdo = Database::createInstancePDO();
-            $sql = "SELECT COUNT(*) as total_messages FROM messages";
+            $sql = "SELECT COUNT(*) as total_messages FROM messages WHERE MESSAGE_RECIPIENT_ID = ?";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute();
+            $stmt->execute($recipientId);
             if ($stmt->rowCount() > 0) {
                 $messages = $stmt->fetch(PDO::FETCH_ASSOC);
                 return $messages['total_messages'];
@@ -110,29 +137,6 @@ class Message
         } catch (PDOException $exception) {
             echo "Erreur lors de la récupération des messages : " . $exception->getMessage();
             return [];
-        }
-    }
-    // Fonction qui permet d'envoyer un message a un utilisateur en fonction de son ID
-    public static function sendMessageToUser(int $userId, string $messageContent, int $messageRecipientId)
-    {
-        try {
-            $pdo = Database::createInstancePDO();
-            $actualDate = date("Y/m/d");
-            $actualTime = date("H:i");
-            $newTime = new DateTime($actualTime);
-            $newTime->add(new DateInterval('PT1H'));
-            $newTimePlusTwo = $newTime->format("H:i");
-            $sql = "INSERT INTO messages (MESSAGE_USER_ID, MESSAGE_CONTENT, MESSAGE_DATE, MESSAGE_TIME, MESSAGE_RECIPIENT_ID) VALUES (?, ?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$userId, $messageContent, $actualDate, $newTimePlusTwo, $messageRecipientId]);
-            if ($stmt->rowCount() > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (PDOException $exception) {
-            echo "Erreur lors de l'envoi du message : " . $exception->getMessage();
-            return false;
         }
     }
 }

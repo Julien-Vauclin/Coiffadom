@@ -3,7 +3,18 @@
 <!-- Boutons -->
 <div class="divButtonsMyMessages">
     <a href="../../Coiffadom/controllers/controller-received-messages.php">
-        <button id="receivedButton" class="receivedButton">Messages reçus</button>
+        <button id="receivedButton" type="button" class="receivedButton btn btn-primary position-relative">
+            Messages reçus
+            <?php
+            $recipientId = $_SESSION['user']['ID'];
+            if (message::countMessages([$recipientId]) > 0) {
+                echo '<span class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">';
+                echo message::countMessages([$recipientId]);
+            }
+            ?>
+            <span class="visually-hidden">New alerts</span>
+            </span>
+        </button>
     </a>
     <a href="../../Coiffadom/controllers/controller-sent-messages.php">
         <button id="sentButton" class="sentButton">Messages envoyés</button>
@@ -37,7 +48,12 @@
         var sendMessageButton = document.querySelector(".sendButtonNewMessage");
 
         sendMessageButton.addEventListener("click", function(event) {
-            if (!confirm("Voulez-vous vraiment envoyer ce message ?")) {
+            // On vérifie si le textarea est vide
+            var messageContent = document.querySelector(".messageContent").value;
+            if (messageContent == " ") {
+                alert("Veuillez saisir un message.");
+                event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".
+            } else if (!confirm("Voulez-vous vraiment envoyer ce message ?")) {
                 event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".
             }
         });
