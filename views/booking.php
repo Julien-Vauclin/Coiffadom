@@ -1,5 +1,14 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
+<!-- Boutons -->
+<div class="divButtonsMyBookings">
+    <a href="../../Coiffadom/controllers/controller-booking.php">
+        <button id="sentButton" class="sentButton">Prendre RDV</button>
+    </a>
+    <a href="../../Coiffadom/controllers/controller-my-bookings.php">
+        <button id="newMessageButton" class="newMessageButton">Voir mes RDV</button>
+    </a>
+</div>
 <!-- Service de coiffure -->
 <form method="POST" action="">
     <div class="mb-3 bookingTypeDiv">

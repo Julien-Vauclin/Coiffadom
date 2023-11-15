@@ -610,6 +610,11 @@ body{
     width: 195px;
     height: 60px;
 }
+/* mybookings */
+.divButtonsMyBookings{
+    margin-top: 40px;
+    text-align: center;
+}
 /* PRICES */
 /* Tableau des prix */
 .priceGrid{
@@ -711,7 +716,7 @@ body{
 /* SECURITY */
 .divPersonalInfos{
     background-color: rgba(255, 255, 255, 0.24);
-    width: 50%;
+    width: 37%;
     margin: 0 auto;
     margin-top: 50px;
     padding: 40px;
@@ -724,20 +729,30 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.updateInfosButton{
+.inputPersonalInfos{
+    width: 300px;
+    text-align: end;
+    background-color: #00000000;
+    border-color: #00000000;
+}
+.updateButtonPersonalInfos{
     background-color: #E33B89;
     color: white;
-    width: 120px;
+    width: 250px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
     transition: 0.4s;
+    margin-top: 25px;
 }
-.updateInfosButton:hover{
+.updateButtonPersonalInfos:hover{
     background-color: rgb(33, 126, 247);
     color: white;
     transition: 0.4s;
-    width: 125px;
+    width: 255px;
     height: 60px;
+}
+.divUpdateButtonPersonalInfos{
+    text-align: center;
 }
