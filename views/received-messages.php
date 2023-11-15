@@ -23,6 +23,7 @@
         <button id="newMessageButton" class="newMessageButton">Nouveau message</button>
     </a>
 </div>
+
 <!-- Affichage des messages reçus -->
 <div class="receivedMessages" id="receivedMessages">
     <?php
