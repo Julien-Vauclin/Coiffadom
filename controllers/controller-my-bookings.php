@@ -18,4 +18,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 $displayBookingsByUserId = BookingAdmin::getBookingByUser($userId);
 ?>
+
 <?php include "../views/my-bookings.php"; ?>
