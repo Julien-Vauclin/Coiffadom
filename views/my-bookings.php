@@ -73,9 +73,9 @@
                                 Êtes-vous sûr(e) de vouloir annuler ce RDV ?
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Decliner</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non, je n'annule pas</button>
                                 <form id="cancelBookingForm" action="" method="POST">
-                                    <button name="cancel" type="submit" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger">Confirmer</button>
+                                    <button name="cancel" type="submit" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger">Oui, j'annule</button>
                                 </form>
                             </div>
                         </div>

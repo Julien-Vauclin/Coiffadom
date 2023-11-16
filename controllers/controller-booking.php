@@ -11,8 +11,8 @@ if (!isset($_SESSION['user'])) {
 <?php $hairstyleTypeError = $hairstyleLengthError = $hairstyleDateError = $hairstyleTimeError = ""; ?>
 <!-- On affiche les valeurs -->
 <?php
+$error = 0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $error = 0;
     $hairstyleDate = $_POST['hairstyleDate']; // BOOKING_DATE
     $hairstyleTime = $_POST['hairstyleTime']; // BOOKING_TIME
     $hairstyleDuration = $_POST['hairstyleDuration']; // BOOKING_DURATION
@@ -47,11 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hairstyleLengthError = "<p class='invalid'>Ce champ est obligatoire.</p>";
         $error++;
     };
-    if ($error === 0) {
+    if (isset($_POST['confirmBooking'])) {
         Booking::createBooking($hairstyleDate, $hairstyleTime, $hairstyleDuration, $_SESSION['user']['ID'], $hairstyleType, $hairstylePrice, $hairstyleLength);
         header("Location: controller-myaccount.php");
     }
 }
 ?>
+
 
 <?php include "../views/booking.php"; ?>

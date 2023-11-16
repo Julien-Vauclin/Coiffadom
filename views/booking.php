@@ -23,8 +23,8 @@
             <option value="6" <?= isset($_POST['hairstyleType']) && $_POST['hairstyleType'] == 6 ? "selected" : "" ?>>Patine</option>
             <option value="7" <?= isset($_POST['hairstyleType']) && $_POST['hairstyleType'] == 7 ? "selected" : "" ?>>Coiffage</option>
         </select>
+        <?php echo $hairstyleTypeError; ?>
     </div>
-    <?php echo $hairstyleTypeError; ?>
     <!-- Longueur de cheveux -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleLength" class="form-label">Longueur de cheveux</label>
@@ -35,8 +35,8 @@
             <option value="3" <?= isset($_POST['hairstyleLength']) && $_POST['hairstyleLength'] == 3 ? "selected" : "" ?>>Long</option>
             <option value="4" <?= isset($_POST['hairstyleLength']) && $_POST['hairstyleLength'] == 4 ? "selected" : "" ?>>Très long</option>
         </select>
+        <?php echo $hairstyleLengthError; ?>
     </div>
-    <?php echo $hairstyleLengthError; ?>
     <div class="mb-3 bookingTypeDiv" style="display: flex; justify-content: space-evenly;">
         <div>
             <input type="hidden" id="inputEstimatedPrice" name="inputEstimatedPrice">
@@ -51,55 +51,75 @@
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleDate" class="form-label">Date</label>
         <input value="<?= isset($_POST['hairstyleDate']) ? $_POST['hairstyleDate'] : "" ?>" type="date" class="form-control" id="hairstyleDate" name="hairstyleDate">
+        <?php echo $hairstyleDateError; ?>
     </div>
-    <?php echo $hairstyleDateError; ?>
     <!-- Heure -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleTime">Heure</label>
         <input value="<?= isset($_POST['hairstyleTime']) ? $_POST['hairstyleTime'] : "" ?>" type="time" class="form-control" id="hairstyleTime" name="hairstyleTime">
+        <?php echo $hairstyleTimeError; ?>
     </div>
-    <?php echo $hairstyleTimeError; ?>
     <div class="divBookingButtons">
         <a href="../../Coiffadom/controllers/controller-myaccount.php">
             <button type="button" class="returnToMyAccountButton">Retour</button>
         </a>
-        <button class="newBookingButton" type="submit">Réserver</button>
+        <!-- Bouton Réserver (MODAL) -->
+        <button id="sentButton" class="sentButton">Réserver</button>
+
+    </div>
+    <!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux -->
+    <script>
+        document.addEventListener("change", e => {
+            if (e.target.classList.contains("form-select")) {
+                let hairstyleType = document.querySelector("#hairstyleType").value;
+                let hairstyleLength = document.querySelector("#hairstyleLength").value;
+                if (hairstyleType != "" && hairstyleLength != "") {
+                    fetch(`../controllers/ajax-price.php?hairstyleType=${hairstyleType}&hairstyleLength=${hairstyleLength}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            const heures = Math.floor(data.BOOKING_DURATION);
+                            const minutes = Math.floor((data.BOOKING_DURATION - heures) * 60);
+                            const heuresAffichees = heures < 10 ? heures : heures.toString();
+                            const minutesAffichees = minutes === 0 ? '' : minutes < 10 ? `:0${minutes}` : `${minutes}`;
+                            document.querySelector("#temps").value = `${heuresAffichees}h${minutesAffichees}`;
+                            document.querySelector("#inputEstimatedDuration").value = `${heuresAffichees}h${minutesAffichees}`;
+                            document.querySelector("#prix").value = data.BOOKING_PRICE + "€";
+                            document.querySelector("#inputEstimatedPrice").value = data.BOOKING_PRICE + "€";
+                        })
+                }
+            };
+        })
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Validation du RDV.</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Êtes-vous sûr(e) de vouloir réserver ce rendez-vous ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                    <input type="submit" class="btn btn-primary" value="Valider" name="confirmBooking">
+                </div>
+            </div>
+        </div>
     </div>
 </form>
-<!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux -->
 <script>
-    document.addEventListener("change", e => {
-        if (e.target.classList.contains("form-select")) {
-            let hairstyleType = document.querySelector("#hairstyleType").value;
-            let hairstyleLength = document.querySelector("#hairstyleLength").value;
-            if (hairstyleType != "" && hairstyleLength != "") {
-                fetch(`../controllers/ajax-price.php?hairstyleType=${hairstyleType}&hairstyleLength=${hairstyleLength}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        const heures = Math.floor(data.BOOKING_DURATION);
-                        const minutes = Math.floor((data.BOOKING_DURATION - heures) * 60);
-                        const heuresAffichees = heures < 10 ? heures : heures.toString();
-                        const minutesAffichees = minutes === 0 ? '' : minutes < 10 ? `:0${minutes}` : `${minutes}`;
-                        document.querySelector("#temps").value = `${heuresAffichees}h${minutesAffichees}`;
-                        document.querySelector("#inputEstimatedDuration").value = `${heuresAffichees}h${minutesAffichees}`;
-                        document.querySelector("#prix").value = data.BOOKING_PRICE + "€";
-                        document.querySelector("#inputEstimatedPrice").value = data.BOOKING_PRICE + "€";
-                    })
-            }
-        };
-    })
+    var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+        keyboard: false
+    });
 </script>
-<!-- Confirmation de la réservation -->
-<script>
-    document.addEventListener("click", e => {
-        if (e.target.classList.contains("newBookingButton")) {
-            if (confirm("Êtes-vous sûr de vouloir réserver ?")) {
-                alert("Votre réservation a bien été prise en compte !");
-            } else {
-                e.preventDefault();
-            }
-        }
-    })
-</script>
+<?php
+if ($error === 0 && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo "<script>myModal.show();</script>";
+}
+?>
+
+
 <?php require_once "components/footer.php" ?>
