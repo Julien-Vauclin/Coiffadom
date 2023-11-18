@@ -48,7 +48,7 @@ if (isset($_SESSION['user'])) {
                         }
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">À propos de moi</a>
+                            <a class="nav-link" href="../../../Coiffadom/controllers/controller-about-me.php">À propos de moi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../../../Coiffadom/controllers/controller-creations.php">Créations</a>

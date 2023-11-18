@@ -1,5 +1,16 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
+<?php if (isset($_SESSION['user']) && ($_SESSION['user']['USER_ADMIN'] == 1)) {
+    echo '<form action="" method="post" enctype="multipart/form-data">';
+    echo '<label for="image">Sélectionner une image :</label>';
+    echo '<input type="file" name="image" id="image" accept="image/*">';
+    echo '<button type="submit">Envoyer</button>';
+    echo '</form>';
+};
+?>
+
+<script>
+</script>
 <?php
 echo '<div class="row mx-0 haircutRow">';
 $haircut = Haircut::getHaircuts();

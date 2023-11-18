@@ -756,3 +756,31 @@ body{
 .divUpdateButtonPersonalInfos{
     text-align: center;
 }
+/* ABOUT ME */
+/* Div about me */
+.aboutmeDiv{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+}
+/* Titre about me */
+.aboutmeTitle{
+    font-size: 26px;
+    margin-top: 5px;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+    background-color: rgb(196, 196, 196);
+    border-radius: 14px;
+    width: 80%;
+}
+/* Texte about me */
+.aboutmeText{
+    font-size: 17px;
+    margin-top: 29px;
+    text-align: center;
+}

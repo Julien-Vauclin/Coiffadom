@@ -19,4 +19,19 @@ class Haircut
             return [];
         }
     }
+    // Fonction pour insérer le nom de l'image dans la base de données
+    public static function insertHaircut($filename)
+    {
+        try {
+            $pdo = Database::createInstancePDO();
+            $sql = "INSERT INTO haircut (HAIRCUT_IMG_NAME) VALUES (:filename)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':filename', $filename, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $exception) {
+            echo "Erreur lors de l'insertion de l'image : " . $exception->getMessage();
+            return false;
+        }
+    }
 }
