@@ -6,9 +6,16 @@
     <a href="../../Coiffadom/controllers/controller-booking.php">
         <button id="sentButton" class="sentButton">Prendre RDV</button>
     </a>
-    <a href="../../Coiffadom/controllers/controller-my-bookings.php">
-        <button id="newMessageButton" class="newMessageButton">Voir mes RDV</button>
-    </a>
+    <?php if (isset($_SESSION['user']) && ($_SESSION['user']['USER_ADMIN'] == 1)) {
+        echo "<a href='../../Coiffadom/controllers/controller-admin-booking.php'>";
+        echo "<button id='newMessageButton' class='newMessageButton'>Voir mes RDV</button>";
+        echo "</a>";
+    } else {
+        echo "<a href='../../Coiffadom/controllers/controller-booking.php'>";
+        echo "<button id='newMessageButton' class='newMessageButton'>Voir mes RDV</button>";
+        echo "</a>";
+    }
+    ?>
 </div>
 <!-- vue -->
 <table class="table tableAdminBooking">

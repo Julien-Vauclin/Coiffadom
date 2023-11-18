@@ -19,7 +19,8 @@ class BookingAdmin
             FROM `booking` 
             INNER JOIN `user` ON `BOOKING_USER_ID` = `ID` 
             INNER JOIN `hair_length` ON `booking`.`HAIR_LENGTH_ID` = `hair_length`.`ID`
-            INNER JOIN `booking_type` ON `booking`.`BOOKING_TYPE_ID` = `booking_type`.`ID`";
+            INNER JOIN `booking_type` ON `booking`.`BOOKING_TYPE_ID` = `booking_type`.`ID`
+            ORDER BY `BOOKING_ID` DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
