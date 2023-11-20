@@ -14,6 +14,7 @@ echo $USER_FORM_ERROR;
 echo "</div>";
 echo "</div>";
 echo "<div class='divUpdateButtonPersonalInfos'>";
+echo "<a href='../../Coiffadom/controllers/controller-myaccount.php'><button class='returnButtonPersonalInfos' type='button'>Retour</button></a>";
 echo "<button class='updateButtonPersonalInfos' type='submit' name='submit'>Modifier</button>";
 echo "</div>";
 echo "</form>";

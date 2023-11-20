@@ -738,23 +738,42 @@ body{
 .updateButtonPersonalInfos{
     background-color: #E33B89;
     color: white;
-    width: 250px;
+    width: 200px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
     transition: 0.4s;
     margin-top: 25px;
+    margin-left: 20px;
 }
 .updateButtonPersonalInfos:hover{
     background-color: rgb(33, 126, 247);
     color: white;
     transition: 0.4s;
-    width: 255px;
+    width: 205px;
     height: 60px;
 }
 .divUpdateButtonPersonalInfos{
     text-align: center;
+}
+.returnButtonPersonalInfos{
+    background-color: #E33B89;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-right: 20px;
+}
+.returnButtonPersonalInfos:hover{
+    background-color: rgb(33, 126, 247);
+    color: white;
+    transition: 0.4s;
+    width: 205px;
+    height: 60px;
 }
 /* ABOUT ME */
 /* Div about me */

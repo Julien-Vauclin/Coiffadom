@@ -60,7 +60,7 @@
         <?php echo $hairstyleTimeError; ?>
     </div>
     <div class="divBookingButtons">
-        <a href="../../Coiffadom/controllers/controller-myaccount.php">
+        <a href="../../Coiffadom/controllers/controller-home.php">
             <button type="button" class="returnToMyAccountButton">Retour</button>
         </a>
         <!-- Bouton Réserver (MODAL) -->

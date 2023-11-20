@@ -46,12 +46,15 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var sendMessageButton = document.querySelector(".sendButtonNewMessage");
-
+        var messageRecipient = document.querySelector(".MESSAGE_RECIPIENT_ID");
         sendMessageButton.addEventListener("click", function(event) {
             // On vérifie si le textarea est vide
             var messageContent = document.querySelector(".messageContent").value;
             if (messageContent == " ") {
                 alert("Veuillez saisir un message.");
+                event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".
+            } else if (messageRecipient == " ") {
+                alert("Veuillez choisir un destinataire.");
                 event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".
             } else if (!confirm("Voulez-vous vraiment envoyer ce message ?")) {
                 event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".

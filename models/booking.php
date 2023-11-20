@@ -20,6 +20,7 @@ class BookingAdmin
             INNER JOIN `user` ON `BOOKING_USER_ID` = `ID` 
             INNER JOIN `hair_length` ON `booking`.`HAIR_LENGTH_ID` = `hair_length`.`ID`
             INNER JOIN `booking_type` ON `booking`.`BOOKING_TYPE_ID` = `booking_type`.`ID`
+            WHERE `BOOKING_STATUS_ID` = 1
             ORDER BY `BOOKING_ID` DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();

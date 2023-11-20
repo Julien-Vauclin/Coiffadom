@@ -37,6 +37,12 @@ if (isset($_SESSION['user'])) {
     </script>
     <!-- Boutons connexion & inscription -->
     <div class="signup-buttons">
+        <!-- Bouton Retour à l'accueil -->
+        <div class="div-register-buttons">
+            <a href="../../Coiffadom/controllers/controller-home.php">
+                <button type="button" class="signup-home-button">Retour à l'accueil</button>
+            </a>
+        </div>
         <!-- Bouton inscription -->
         <div class="div-register-buttons">
             <a href="../../Coiffadom/controllers/controller-signup.php">
