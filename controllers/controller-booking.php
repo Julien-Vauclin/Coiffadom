@@ -3,6 +3,10 @@ if (!isset($_SESSION['user'])) {
     header("Location: ../../Coiffadom/controllers/controller-login.php");
     exit;
 } ?>
+<?php if (isset($_SESSION['user']) && ($_SESSION['user']['USER_ADMIN'] == 1)) {
+    header("Location: ../../Coiffadom/controllers/controller-admin-booking.php");
+    exit;
+} ?>
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/booking-price.php"; ?>

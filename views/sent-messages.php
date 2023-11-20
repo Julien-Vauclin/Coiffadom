@@ -39,8 +39,7 @@
             echo  '<div class = "sentMessageDiv">';
             echo '<p class = "mymessagesSentMessageText">' . htmlspecialchars($message['MESSAGE_CONTENT'], ENT_QUOTES, 'UTF-8') . '</p>';
             echo '<div class = "dateAndDeleteButton">';
-            echo '<p class = "dateSentMessage">' . "Envoyé le " . htmlspecialchars($message['MESSAGE_DATE'] = date("d/m/Y", strtotime($message['MESSAGE_DATE'])), ENT_QUOTES, 'UTF-8') . " à " . htmlspecialchars($message['MESSAGE_TIME'], ENT_QUOTES, 'UTF-8') . '</p>';
-            echo '<p class = "receiverSentMessage">' . "Destinataire : " . htmlspecialchars($message['MESSAGE_RECIPIENT_ID'] . " "  . htmlspecialchars($message['USER_FIRSTNAME']) . " " . $message['USER_LASTNAME'], ENT_QUOTES, 'UTF-8') . '</p>';
+            echo 'Envoyé le ' . htmlspecialchars($message['MESSAGE_DATE'] = date("d/m/Y", strtotime($message['MESSAGE_DATE'])), ENT_QUOTES, 'UTF-8') . " à " . htmlspecialchars($message['MESSAGE_TIME'], ENT_QUOTES, 'UTF-8') . '<br>' . 'Destinataire : ' . htmlspecialchars($message['USER_FIRSTNAME'], ENT_QUOTES, 'UTF-8') . ' ' . htmlspecialchars($message['USER_LASTNAME'], ENT_QUOTES, 'UTF-8');
             echo '<button class="mymessagesSentDeleteButton" onclick="deleteMessage(' . $message['MESSAGE_ID'] . ')">Supprimer</button>';
             echo '</div>';
             echo '</div>';

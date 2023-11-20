@@ -22,7 +22,17 @@ if (isset($_SESSION['user']['USER_MAIL'])) {
     $infosUser = User::getInfosUser($_SESSION['user']['USER_MAIL']);
 }
 ?>
-
+<!-- Confirmation de la modification des informations personnelles -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var updateButtonPersonalInfos = document.querySelector(".updateButtonPersonalInfos");
+        updateButtonPersonalInfos.addEventListener("click", function(event) {
+            if (!confirm("Voulez-vous vraiment modifier vos informations personnelles ?")) {
+                event.preventDefault(); // Empêche l'envoi du formulaire si l'utilisateur clique sur "Annuler".
+            }
+        });
+    });
+</script>
 <!-- INCLUSION JAVASCRIPT -->
 <script src="../../Coiffadom/assets/script/script.js"></script>
 <?php require_once "components/footer.php" ?>

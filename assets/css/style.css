@@ -512,12 +512,6 @@ body{
     padding-bottom: none;
     margin-bottom: none;
 }
-.dateSentMessage {
-    margin: 0;
-    display: flex;
-    align-self: flex-end;
-    margin-bottom: 20px;
-}
 .mymessagesSentMessageText{
     font-size: 20px;
     margin-top: 5px;

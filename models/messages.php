@@ -86,7 +86,7 @@ class Message
             $pdo = Database::createInstancePDO();
             $sql = "SELECT * FROM messages 
             INNER JOIN user
-            ON `MESSAGE_USER_ID` = `ID`
+            ON `MESSAGE_RECIPIENT_ID` = `ID`
             WHERE `MESSAGE_USER_ID` = ?
             AND `MESSAGE_RECIPIENT_ID` != MESSAGE_USER_ID";
             $stmt = $pdo->prepare($sql);

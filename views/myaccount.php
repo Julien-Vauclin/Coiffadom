@@ -23,14 +23,20 @@ if (!isset($_SESSION['user'])) {
 
         <!-- Card 2 -->
         <div class="col-md-6 colMyAccount">
-            <a href="../../Coiffadom/controllers/controller-booking.php">
-                <div class="card cardMyAccount">
-                    <img src="../../Coiffadom/assets/img/appointment.png" class="card-img-top logoMyAccount" alt="Logo rendez-vous">
-                    <div class="card-body textCardMyAccount">
-                        <h5 class="card-title">Rendez-vous</h5>
-                        <p class="card-text">Prenez, annulez ou modifiez vos rendez-vous</p>
-                    </div>
+            <?php
+            if (isset($_SESSION['user']) && ($_SESSION['user']['USER_ADMIN'] == 1)) {
+                echo "<a href='../../Coiffadom/controllers/controller-admin-booking.php'>";
+            } else {
+                echo "<a href='../../Coiffadom/controllers/controller-booking.php'>";
+            }
+            ?>
+            <div class="card cardMyAccount">
+                <img src="../../Coiffadom/assets/img/appointment.png" class="card-img-top logoMyAccount" alt="Logo rendez-vous">
+                <div class="card-body textCardMyAccount">
+                    <h5 class="card-title">Rendez-vous</h5>
+                    <p class="card-text">Prenez, annulez ou modifiez vos rendez-vous</p>
                 </div>
+            </div>
             </a>
         </div>
     </div>
