@@ -110,7 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // On cache le formulaire
                         var form = document.querySelector('form');
                         form.style.display = 'none';
-                        document.body.appendChild(welcomeMessage);
                         // On redirige l'utilisateur vers la page d'accueil
                         setTimeout(function() {
                             window.location.href = '../../Coiffadom/controllers/controller-login.php';
@@ -118,18 +117,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         // On affiche le décompte
                         var count = 3;
                         var countDown = document.createElement('p');
-                        countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.</p>';
+                        countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Bienvenue $USER_FIRSTNAME $USER_LASTNAME ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
                         document.body.appendChild(countDown);
                         // On redirige l'utilisateur vers la page de Connexion
                         var interval = setInterval(function() {
                             count--;
-                            countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Vous allez être redirigé vers la page Connexion dans ' + count + ' secondes.</p>';
+                            countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Bienvenue $USER_FIRSTNAME  $USER_LASTNAME ! Redirection vers Messages reçus dans ' + count + ' secondes.</p>';
                             if (count === 0) {
                                 clearInterval(interval);
                             }
                         }, 1000);
                     };
-                </script>";
+                </script>
+                ";
                 }
             } catch (PDOException $exception) {
                 echo "Erreur lors de l'ajout de l'employé : " . $exception->getMessage() . "<br>";

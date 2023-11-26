@@ -48,12 +48,22 @@
     </div>
 </div>
 <!--Fin carousel-->
+<!-- Script défilement automatique carousel -->
 <script>
     function autoScroll() {
         $('#carouselExampleCaptions').carousel('next');
     }
     setInterval(autoScroll, 7000);
 </script>
+<!-- Fin script défilement automatique carousel -->
+<!-- Actus -->
+<div style="margin:0 auto; width:51%;">
+    <p style="font-size: 32px; text-align:center; margin-top:55px; background-color:#B4918F; border-radius:8px; font-weight:bold;">ACTUALITÉS</p>
+</div>
+<div class="divActusHome" style="text-align: center;">
+    <p style="text-align: center;">Les vacances de Noël approchent à grand pas ! Vacances prévues du <b>Samedi 16 Décembre</b> jusqu'au <b>Lundi 8 Janvier.</b><br><br><span style="font-size: 25px;">Bonnes fêtes à toutes & à tous !</span></p>
+</div>
+<!-- Bienvenue -->
 <div style="margin:0 auto; width:51%;">
     <p style="font-size: 27px; text-align:center; margin-top:55px; background-color:#B4918F; border-radius:8px; font-weight:bold;">Bienvenue sur le site internet Colorée par Céline !</p>
 </div>
@@ -70,7 +80,7 @@
 </div>
 <a class="buttonHomePageMobile" href="../../Coiffadom/controllers/controller-prices.php"><button class="buttonCarousel">Tarifs</button></a>
 <div class="divBookingHome">
-    <p class="textHomePage" style="font-size: 16px; width:80%;">Vous souhaitez prendre rendez-vous ? N'hésitez plus ! Prenez votre rendez-vous en 1 minute chrono.</p>
+    <p class="textHomePage" style="font-size: 19px; width:80%;">Vous souhaitez prendre rendez-vous ? N'hésitez plus ! Prenez votre rendez-vous en 1 minute chrono. Choisissez la prestation souhaitée, votre longueur de cheveux, la date et l'heure souhaitée, puis validez votre rendez-vous.</p>
     <a class="buttonHomePage" href="../../Coiffadom/controllers/controller-booking.php"><button class="buttonCarousel">Rendez-vous</button></a>
     <img class="logoHomePage" src="../../Coiffadom/assets/img/meetinglogo.png" alt="" height="1%" width="3%">
 </div>

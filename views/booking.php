@@ -104,7 +104,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                    <input type="submit" class="btn btn-primary" value="Valider" name="confirmBooking">
+                    <input type="submit" class="btn btn-primary" value="Valider" name="confirmBooking" onclick="handleSuccessfulBooking(event)">
                 </div>
             </div>
         </div>
@@ -116,8 +116,40 @@
     });
 </script>
 <?php
+echo "<script>
+function handleSuccessfulBooking(event) {
+    // Empêche le rechargement de la page par défaut
+    event.preventDefault();
+    // On cache la modal
+    myModal.hide();
+    // On cache le formulaire
+    var form = document.querySelector('form');
+    form.style.display = 'none';
+    // On redirige l'utilisateur vers la page d'accueil
+    setTimeout(function() {
+        window.location.href = '../../Coiffadom/controllers/controller-myaccount.php';
+    }, 3000);
+    // On affiche le décompte
+    var count = 3;
+    var countDown = document.createElement('p');
+    countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre rendez-vous a bien été enregistré ! Redirection vers Mon compte dans ' + count + ' secondes.</p>';
+    document.body.appendChild(countDown);
+    // On redirige l'utilisateur vers la page de Connexion
+    var interval = setInterval(function() {
+        count--;
+        countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre rendez-vous a bien été enregistré ! Redirection vers Mon compte dans ' + count + ' secondes.</p>';
+        if (count === 0) {
+            clearInterval(interval);
+        }
+    }, 1000);
+};
+</script>";
+?>
+<?php
 if ($error === 0 && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<script>myModal.show();</script>";
+    echo "<script>
+    myModal.show();
+    </script>";
 }
 ?>
 

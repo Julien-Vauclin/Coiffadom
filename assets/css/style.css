@@ -4,6 +4,7 @@ a{
     text-decoration: none;
 }
 /* BODY */
+
 body{
     background-color: rgb(163, 163, 163);
     font-family: Fredoka;
@@ -112,6 +113,17 @@ body{
     border-radius: 24px;
     display: flex;
     justify-content: space-between;
+}
+.divActusHome{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 130px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+    font-size: 21px;
 }
 .divPricesHome{
     background-color: rgba(255, 255, 255, 0.24);
@@ -304,6 +316,24 @@ body{
     .greatDivSignupButtons{
         display: none;
     }
+    .cardMyAccount{
+        max-width: 100%;
+        width: 100%;
+        background-color: #B4918F;
+        color: white;
+    }
+    .textareaNewMessage{
+        width: 500px;
+    }
+    .messageContent{
+        width: 500px;
+    }
+    .colPresta{
+        display: none;
+    }
+    .colLongueur{
+        display: none;
+    }
 }
 /* Tablette */
 @media screen and (min-width: 576px) {
@@ -476,8 +506,8 @@ body{
 }
 /* Redirection vers la page de connexion */
 .redirectToLoginMessage{
-    color: deeppink;
-    background-color: blue;
+    color: white;
+    background-color: #B4918F;
     font-size: 30px;
     text-align: center;
     margin-top: 270px;
@@ -529,6 +559,12 @@ body{
 }
 /* MON COMPTE */
 /* Conteneur cartes */
+.textecarteaccount{
+    color: #B4918F;
+}
+.titrecarteaccount{
+    color: #B4918F;
+}
 .containerMyAccount{
     margin-top: 50px;
 }
@@ -547,6 +583,7 @@ body{
     margin-left: 25px;
     margin-right: 25px;
     transition: 0.4s;
+    background-color: white;
 }
 .cardMyAccount:hover{
     transform: scale(1.04);
@@ -581,6 +618,22 @@ body{
     transition: 0.4s;
 }
 .receivedButton:hover{
+    background-color: white;
+    color: #B4918F;
+    transition: 0.4s;
+}
+.receivedButtonMyAccount{
+    background-color: #B4918F;
+    color: white;
+    width: 180px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    transition: 0.4s;
+    margin-bottom: 6px;
+}
+.receivedButtonMyAccount:hover{
     background-color: white;
     color: #B4918F;
     transition: 0.4s;
@@ -716,6 +769,28 @@ body{
     margin-top: 50px;
     width: 65%;
 }
+@media screen and (max-width: 576px) 
+{
+    .textareaNewMessage{
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: center;
+    }
+    .mymessagesSentMessageDiv{
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: center;
+    
+    }
+    .mymessagesReceivedMessageDiv{
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: center;
+    }
+}
 .sendButtonNewMessage{
     background-color: #B4918F;
     color: white;
@@ -795,6 +870,7 @@ body{
     background-color: white;
     margin: 0 auto;
     margin-top: 60px;
+    color: #B4918F;
 }
 .priceGridRow{
     padding-top: 12px;
@@ -820,6 +896,9 @@ body{
     .priceGrid{
         font-size: 17px;
         width: 80%;
+    }
+    .inputPersonalInfos{
+        width: 120px;
     }
 }
 /* Desktop */
@@ -853,7 +932,7 @@ body{
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 35px;
-    background-color: rgba(255, 20, 145, 0.308);
+    background-color: #b4918fb9;
     border-radius: 10px;
     width: 95%;
 }
@@ -895,6 +974,12 @@ body{
     border: #00000000;
     border-radius: 24px;
 }
+@media screen and (max-width: 576px) 
+{
+    .divPersonalInfos{
+        width: 90%;
+    }
+}
 .textPersonalInfos{
     font-size: 20px;
     margin-top: 5px;
@@ -907,6 +992,18 @@ body{
     background-color: #00000000;
     border-color: #00000000;
 }
+@media screen and (max-width: 576px) 
+{
+    .inputPersonalInfos{
+        width: 120px;
+    }
+}
+@media screen and (min-width: 672px)
+{
+    .inputPersonalInfos{
+        width: 120px;
+    }
+}
 .updateButtonPersonalInfos{
     background-color: #B4918F;
     color: white;
@@ -917,6 +1014,14 @@ body{
     font-size: 20px;
     margin-top: 20px;
     transition: 0.4s;
+    margin-left: 15px;
+}
+/* Mobile */
+@media screen and (max-width: 576px) 
+{
+    .updateButtonPersonalInfos{
+        width: 120px;
+    }
 }
 .updateButtonPersonalInfos:hover{
     background-color: white;
@@ -925,6 +1030,9 @@ body{
 }
 .divUpdateButtonPersonalInfos{
     text-align: center;
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
 }
 .returnButtonPersonalInfos{
     background-color: #B4918F;
@@ -936,6 +1044,13 @@ body{
     font-size: 20px;
     margin-top: 20px;
     transition: 0.4s;
+    margin-right: 15px;
+}
+@media screen and (max-width: 576px) 
+{
+    .returnButtonPersonalInfos{
+        width: 120px;
+    }
 }
 .returnButtonPersonalInfos:hover{
     background-color: white;

@@ -11,7 +11,7 @@
         echo "<button id='newMessageButton' class='newMessageButton'>Voir mes RDV</button>";
         echo "</a>";
     } else {
-        echo "<a href='../../Coiffadom/controllers/controller-booking.php'>";
+        echo "<a href='../../Coiffadom/controllers/controller-my-bookings.php'>";
         echo "<button id='newMessageButton' class='newMessageButton'>Voir mes RDV</button>";
         echo "</a>";
     }
@@ -23,8 +23,8 @@
         <tr>
             <th scope="col">Date prévue</th>
             <th scope="col">Heure prévue</th>
-            <th scope="col">Prestation demandée</th>
-            <th scope="col">Longueur des cheveux</th>
+            <th scope="col" class="colPresta">Prestation demandée</th>
+            <th scope="col" class="colLongueur">Longueur des cheveux</th>
             <th scope="col">Statut du RDV</th>
             <th></th>
         </tr>
@@ -42,13 +42,13 @@
                 if ($booking['BOOKING_TYPE_NAME'] == "MECHES") {
                     $booking['BOOKING_TYPE_NAME'] = "Mèches";
                 } ?>
-                <td><?= ucfirst(strtolower($booking['BOOKING_TYPE_NAME'])) ?></td>
+                <td class="colPresta"><?= ucfirst(strtolower($booking['BOOKING_TYPE_NAME'])) ?></td>
                 <?php
                 if ($booking['HAIR_LENGTH_NAME'] == "TRES_LONG") {
                     $booking['HAIR_LENGTH_NAME'] = "Très long";
                 }
                 ?>
-                <td><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
+                <td class="colLongueur"><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
                 <?php
                 if ($booking['BOOKING_STATUS_ID'] == 1) {
                     $booking['BOOKING_STATUS_ID'] = "En attente ...";

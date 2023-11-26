@@ -3,7 +3,7 @@
 <!-- Boutons -->
 <div class="divButtonsMyMessages">
     <a href="../../Coiffadom/controllers/controller-received-messages.php">
-        <button id="receivedButton" type="button" class="receivedButton btn btn-primary position-relative">
+        <button id="receivedButton" type="button" class="receivedButtonMyAccount btn btn-primary position-relative">
             Messages reçus
             <?php
             $recipientId = $_SESSION['user']['ID'];
