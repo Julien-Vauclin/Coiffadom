@@ -105,15 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $sql = "INSERT INTO user (USER_MAIL, USER_FIRSTNAME, USER_LASTNAME, USER_PHONE, USER_PASSWORD) VALUES (?, ?, ?, ?, ?)";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([$USER_MAIL, $USER_FIRSTNAME, $USER_LASTNAME, $USER_PHONE, $hashedPassword]);
-                    echo "L'employé a bien été ajouté. (controller-signup.php)";
                     echo "<script>
                     window.onload = function() {
                         // On cache le formulaire
                         var form = document.querySelector('form');
                         form.style.display = 'none';
-                        // On affiche un message de bienvenue
-                        var welcomeMessage = document.createElement('p');
-                        welcomeMessage.innerHTML = 'Bienvenue';
                         document.body.appendChild(welcomeMessage);
                         // On redirige l'utilisateur vers la page d'accueil
                         setTimeout(function() {

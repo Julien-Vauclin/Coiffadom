@@ -53,12 +53,31 @@ if (isset($_SESSION['user'])) {
         <?= $passwordConfirmError; ?>
     </div>
     <!-- Boutons connexion & inscription -->
-    <div class="signup-buttons">
-        <!-- Bouton Retour à l'accueil -->
+    <div class="greatDivSignupButtons">
+        <div class="signup-buttons">
+            <!-- Bouton Retour à l'accueil -->
+            <div class="div-register-buttons">
+                <a href="../../Coiffadom/controllers/controller-home.php">
+                    <button type="button" class="signup-home-button">Retour à l'accueil</button>
+                </a>
+            </div>
+            <!-- Bouton Se connecter -->
+            <div class="div-register-buttons">
+                <a href="../../Coiffadom/controllers/controller-login.php">
+                    <button type="button" class="signup-return-button">Se connecter</button>
+                </a>
+                <p class="noaccount">Vous avez un compte !</p>
+            </div>
+            <!-- Bouton S'inscrire -->
+            <div class="div-register-buttons">
+                <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
+            </div>
+        </div>
+    </div>
+    <div class="signupButtonsMobile">
+        <!-- Bouton S'inscrire -->
         <div class="div-register-buttons">
-            <a href="../../Coiffadom/controllers/controller-home.php">
-                <button type="button" class="signup-home-button">Retour à l'accueil</button>
-            </a>
+            <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
         </div>
         <!-- Bouton Se connecter -->
         <div class="div-register-buttons">
@@ -67,12 +86,15 @@ if (isset($_SESSION['user'])) {
             </a>
             <p class="noaccount">Vous avez un compte !</p>
         </div>
-        <!-- Bouton S'inscrire -->
+        <!-- Bouton Retour à l'accueil -->
         <div class="div-register-buttons">
-            <button type="submit" name="submit" class="signup-register-button">S'inscrire</button>
+            <a href="../../Coiffadom/controllers/controller-home.php">
+                <button type="button" class="signup-home-button">Retour à l'accueil</button>
+            </a>
         </div>
     </div>
 </form>
+
 <!-- INCLUSION JAVASCRIPT -->
 <script src="../../Coiffadom/assets/script/script.js"></script>
 <?php require_once "components/footer.php" ?>

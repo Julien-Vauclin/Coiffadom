@@ -6,11 +6,14 @@ a{
 /* BODY */
 body{
     background-color: rgb(163, 163, 163);
-    margin-bottom: 100px;
     font-family: Fredoka;
+    margin-bottom: 100px;
 }
 /* NAVBAR */
 /* Navbar */
+.navbar{
+    margin-bottom: 40px;
+}
 .mynavbar{
     background-color: white;
     box-shadow: 0px 0px 10px #00000052;
@@ -18,54 +21,37 @@ body{
 }
 /* Logo Navbar */
 .navbarlogo{
-    width: 100px;
+    width: 220px;
     height: 100px;
     margin: 0px;
-    margin-right: 25px;
     padding: 0px;
     border-radius: 50%;
-    border: 2px solid #fff;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px #000;
-    transition: all 0.5s ease-in-out;
-}
-/* Barre de recherche navbar */
-.search-popup {
-    display: none;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.8);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
-.search-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 0%;
     margin: 0 auto;
 }
-.search-bar {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
+.navbar-brand{
     text-align: center;
+    margin: 0 auto;
 }
-.rechercher{
-    margin-right: 15px;
+/* Boutons navbar */
+.nav-link{
+    color: black;
+    font-size: 20px;
+    margin-right: 40px;
 }
-/* .loupe1{
-    border: none;
-    background-color: transparent;
+.nav-link:hover{
+    color: #B4918F;
+    transition: 0.4s;
 }
-.loupe2{
-    border: none;
-    background-color: transparent;
-} */
+.offcanvas-title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+.offcanvas-header{
+    background-color: #b4918f9c;
+}
 /* Bouton connexion/inscription */
 .div-navbar-login-button{
     position: relative;
@@ -115,6 +101,114 @@ body{
     padding-left: 4px;
     padding-bottom: 5px;
 }
+/* HOME */
+.divAboutMeHome{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.divPricesHome{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.divBookingHome{
+    background-color: rgba(255, 255, 255, 0.24);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    border: #00000000;
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+
+}
+/*Carousel*/
+.mycarousel{
+    margin: 0 auto;
+    background-color: #B4918F;
+    padding-bottom: 100px;
+}
+.slide{
+    background-image: url(../../assets/img/bg.png);
+    background-attachment: fixed;
+    background-position: center center;
+    height: 10%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.192);
+  }
+  .imgcarousel{
+    max-height: 500px;
+    object-fit: cover;
+    width: 50px;
+    max-width: 50%;
+    height: 100%;
+    margin: 0 auto;
+
+  }
+  .textecarousel{
+    font-weight: bold;
+    color: blue;
+  }
+  .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.452);
+    border-radius: 10px;
+    font-size: 22px;
+  }
+  .titrecarousel{
+    font-size: 45px;
+  }
+  .carousel-control-next{
+    transition: 0.4s;
+  }
+  .carousel-control-next:hover{
+    background-color: rgba(255, 255, 255, 0.192);
+    transition: 0.4s;
+  }
+  .carousel-control-prev{
+    transition: 0.4s;
+  }
+  .carousel-control-prev:hover{
+    background-color: rgba(255, 255, 255, 0.192);
+    transition: 0.4s;
+  }
+  @media (max-width:1500px) {
+    .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.452);
+    border-radius: 10px;
+    font-size: 18px;
+    }
+    .titrecarousel{
+      font-size: 35px;
+    }
+  }
+  @media (max-width:1000px) {
+    .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.452);
+    border-radius: 10px;
+    font-size: 15px;
+    }
+    .titrecarousel{
+      font-size: 25px;
+    }
+  }
+/*Fin Carousel*/
 /* FOOTER */
 /* Footer */
 .myfooter{
@@ -134,14 +228,16 @@ body{
 /* Mobile */
 @media screen and (max-width: 576px) 
 {
-    /* .loupe1{
-        display: block;
-        margin-left: auto;
-        margin-right: 25px;
-    }
-    .loupe2{
+    .logodesktop{
         display: none;
-    } */
+    }
+    .navbarlogo{
+        width: 150px;
+        height: 70px;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 50%;
+    }
     .search-content {
         margin-top: 150px;
     }
@@ -152,17 +248,68 @@ body{
         margin-left: 10px;
         margin-right: 7px;
     }
+    .mycarousel{
+        height: 200px;
+    }
+    .carousel{
+        height: 200px;
+    }
+    .slide{
+        height: 200px;
+        width: 100%;
+    }
+    .textHomePage{
+        width: 100%;
+    }
+    .buttonHomePage{
+        display: none;
+    }
+    .logoHomePage{
+        display: none;
+    }
+    .buttonHomePageMobile{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .nometprenom{
+        display: none;
+    }
+    .haircutRow{
+        max-width: 80%;
+    }
+    .cardHaircut{
+        width: 80%;
+    }
+    .imageHaircut{
+        max-width: 80%;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .signup-buttons{
+        width: 30%;
+        max-width: 30%;
+        height: 800px;
+    }
+    .signup-home-button{
+        width: 80%;
+        max-width: 80%;
+    }
+    .signupButtonsMobile{
+        display: block;
+    }
+    .signup-buttons{
+        display: none;
+    }
+    .greatDivSignupButtons{
+        display: none;
+    }
 }
 /* Tablette */
 @media screen and (min-width: 576px) {
-    /* .loupe1{
-        display: block;
-        margin-left: auto;
-        margin-right: 25px;
-    }
-    .loupe2{
+    .logodesktop{
         display: none;
-    } */
+    }
     .search-content {
         margin-top: 250px;
     }
@@ -173,15 +320,33 @@ body{
         margin-left: 10px;
         margin-right: 7px;
     }
+    .mycarousel{
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+    .buttonHomePageMobile{
+        display: none;
+    }.logoHomePage{
+        display: none;
+    }
+    .signupButtonsMobile{
+        display: none;
+    }
+    .signup-buttons{
+        display: none;
+    }
+    .greatDivSignupButtons{
+        display: block;
+    }
 }
 /* Desktop */
 @media screen and (min-width: 992px){  
-    /* .loupe1{
+    .logomobile{
         display: none;
     }
-    .loupe2{
+    .logodesktop{
         display: block;
-    } */
+    }
     .search-content {
         margin-top: 350px;
     }
@@ -195,6 +360,39 @@ body{
         margin-top: 7px;
         margin-left: 10px;
     }
+    .mycarousel{
+        padding-top: 80px;
+        padding-bottom: none;
+    }
+    .buttonHomePageMobile{
+        display: none;
+    }
+    .logoHomePage{
+        display: block;
+    }
+    .signupButtonsMobile{
+        display: none;
+    }
+    .greatDivSignupButtons{
+        display: block;
+    }
+}
+.buttonCarousel{
+    background-color: #B4918F;
+    color: white;
+    width: 180px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: 0.4s;
+
+}
+.buttonCarousel:hover{
+    background-color: white;
+    color: #B4918F;
+    transition: 0.4s;
 }
 /* INSCRIPTION */
 /* Erreurs formulaire */
@@ -227,59 +425,54 @@ body{
 }
 /* Bouton Retour */
 .signup-return-button{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
     width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .signup-return-button:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 190px;
-    height: 60px;
 }
 /* Bouton S'inscrire */
 .signup-register-button{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
     width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-bottom: 80px;    
 }
 .signup-register-button:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 190px;
-    height: 60px;
 }
 /* Bouton Retour à l'accueil */
 .signup-home-button{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
     width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-bottom: 80px;
 }
 .signup-home-button:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 190px;
-    height: 60px;
 }
 /* Redirection vers la page de connexion */
 .redirectToLoginMessage{
@@ -292,40 +485,37 @@ body{
 /* CONNEXION */
 /* Bouton Connexion */
 .login-connexion-button{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
     width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-bottom: 80px;
 }
 .login-connexion-button:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 190px;
-    height: 60px;
 }
 /* Bouton Inscription */
 .login-signup-button{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
     width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .login-signup-button:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 190px;
-    height: 60px;
 }
 /* Pas de compte */
 .noaccount{
@@ -380,59 +570,54 @@ body{
 }
 /* bouton messages reçus */
 .receivedButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 185px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-right: 20px;
 }
 .receivedButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 195px;
-    height: 60px;
 }
 /* bouton messages envoyés */
 .sentButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 185px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-right: 20px;
 }
 .sentButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 195px;
-    height: 60px;
 }
 /* bouton nouveau message */
 .newMessageButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 185px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .newMessageButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 195px;
-    height: 60px;
 }
 /* Messages envoyés */
 .sentMessageDiv{
@@ -490,21 +675,20 @@ body{
     font-size: 50px;
 }
 .mymessagesSentDeleteButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 120px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .mymessagesSentDeleteButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 125px;
-    height: 60px;
 }
 .dateAndDeleteButton{
     display: flex;
@@ -533,23 +717,20 @@ body{
     width: 65%;
 }
 .sendButtonNewMessage{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 120px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-top: 25px;
-    margin-left: 300px;
 }
 .sendButtonNewMessage:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 125px;
-    height: 60px;
 }
 /* Booking */
 .bookingTypeDiv{
@@ -570,39 +751,37 @@ body{
 }
 /* Bouton réserver */
 .newBookingButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 185px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
-    transition: 0.4s;;
+    margin-top: 20px;
+    transition: 0.4s;
 }
 .newBookingButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 195px;
-    height: 60px;
 }
 /* Bouton retour */
 .returnToMyAccountButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 185px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .returnToMyAccountButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 195px;
-    height: 60px;
 }
 /* mybookings */
 .divButtonsMyBookings{
@@ -688,21 +867,20 @@ body{
 }
 /* Admin messages reçus */
 .receivedMessagesAdminDeleteButton{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 120px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
 }
 .receivedMessagesAdminDeleteButton:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 125px;
-    height: 60px;
 }
 .selectInfosUser{
     width: 25%;
@@ -730,44 +908,39 @@ body{
     border-color: #00000000;
 }
 .updateButtonPersonalInfos{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 200px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-top: 25px;
-    margin-left: 20px;
 }
 .updateButtonPersonalInfos:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 205px;
-    height: 60px;
 }
 .divUpdateButtonPersonalInfos{
     text-align: center;
 }
 .returnButtonPersonalInfos{
-    background-color: #E33B89;
+    background-color: #B4918F;
     color: white;
-    width: 200px;
+    width: 180px;
     height: 50px;
     border-radius: 12px;
     border: none;
     font-size: 20px;
+    margin-top: 20px;
     transition: 0.4s;
-    margin-right: 20px;
 }
 .returnButtonPersonalInfos:hover{
-    background-color: rgb(33, 126, 247);
-    color: white;
+    background-color: white;
+    color: #B4918F;
     transition: 0.4s;
-    width: 205px;
-    height: 60px;
 }
 /* ABOUT ME */
 /* Div about me */

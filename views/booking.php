@@ -59,7 +59,7 @@
         <input value="<?= isset($_POST['hairstyleTime']) ? $_POST['hairstyleTime'] : "" ?>" type="time" class="form-control" id="hairstyleTime" name="hairstyleTime">
         <?php echo $hairstyleTimeError; ?>
     </div>
-    <div class="divBookingButtons">
+    <div class="divButtonsMyBookings">
         <a href="../../Coiffadom/controllers/controller-home.php">
             <button type="button" class="returnToMyAccountButton">Retour</button>
         </a>

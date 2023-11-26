@@ -12,11 +12,11 @@
 <script>
 </script>
 <?php
-echo '<div class="row mx-0 haircutRow">';
+echo '<div class="row mx-auto haircutRow">';
 $haircut = Haircut::getHaircuts();
 foreach ($haircut as $file) {
-    echo '<div class="card col-md-6 col-sm-12 col-lg-4 my-3">';
-    echo '<img class="image card-img-top" src="../../Coiffadom/assets/img/haircuts/' . $file['HAIRCUT_IMG_NAME'] . '" alt="coupe" width="200px">';
+    echo '<div class="card col-md-6 col-sm-12 col-lg-4 my-3 cardHaircut">';
+    echo '<img class="image card-img-top imageHaircut mx-auto" src="../../Coiffadom/assets/img/haircuts/' . $file['HAIRCUT_IMG_NAME'] . '" alt="coupe" width="200px">';
     echo '<p class="creationsImgDescription">';
     echo $file['HAIRCUT_IMG_DESCRIPTION'];
     echo '</p>';

@@ -15,21 +15,16 @@ if (isset($_SESSION['user'])) {
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
         <div class="container-fluid mynavbar">
             <!-- Logo -->
-            <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/outils-de-cheveux.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo">Colorée par Céline</a>
-            <!-- 1ère loupe -->
-            <!-- <button class="loupe1" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
-            <div class="search-popup">
-                <div class="search-content">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Rechercher..." class="rechercher">
-                        <button onclick="closeSearchPopup()">Fermer</button>
-                    </div>
-                </div>
-            </div> -->
+            <div class="logodesktop">
+                <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/coiffadom-logo.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo"></a>
+            </div>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="logomobile">
+                <a class="navbar-brand" href="../../../Coiffadom/controllers/controller-home.php"><img src="../assets/img/coiffadom-logo.png" alt="Logo Céline Coiff' à Dom" class="navbarlogo"></a>
+            </div>
             <!-- Menu offcanvas -->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarScroll" aria-labelledby="navbarScrollLabel">
                 <div class="offcanvas-header">
@@ -59,21 +54,13 @@ if (isset($_SESSION['user'])) {
                     </ul>
                 </div>
             </div>
-            <!-- 2ème loupe -->
-            <!-- <button class="loupe2" onclick="openSearchPopup()"><span class="bi bi-search"></span></button>
-            <div class="search-popup">
-                <div class="search-content">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Rechercher..." class="rechercher">
-                        <button onclick="closeSearchPopup()">Fermer</button>
-                    </div>
-                </div>
-            </div> -->
             <!-- Nom & Prénom -->
-            <?php if (isset($_SESSION['user'])) {
-                echo "Bonjour " . "<b>" . $_SESSION['user']['USER_FIRSTNAME'] . " " . $_SESSION['user']['USER_LASTNAME'] . "</b>";
-            }
-            ?>
+            <div class="nometprenom">
+                <?php if (isset($_SESSION['user'])) {
+                    echo "Bonjour " . "&nbsp;" . "<b>" . $_SESSION['user']['USER_FIRSTNAME'] . " " . $_SESSION['user']['USER_LASTNAME'] . "</b>";
+                }
+                ?>
+            </div>
             <!-- Bouton Connexion/Inscription -->
             <div class="div-navbar-login-button custom-select">
                 <button id="select-button" class="navbar-login-button select-button">
