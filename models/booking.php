@@ -27,7 +27,7 @@ class BookingAdmin
             if ($stmt->rowCount() > 0) {
                 return $stmt->fetchAll();
             } else {
-                return false;
+                return [];
             }
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -52,7 +52,7 @@ class BookingAdmin
             if ($stmt->rowCount() > 0) {
                 return $stmt->fetchAll();
             } else {
-                return false;
+                return [];
             }
         } catch (PDOException $e) {
             echo $e->getMessage();

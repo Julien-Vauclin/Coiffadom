@@ -15,34 +15,41 @@ $displayAllBookings = BookingAdmin::getAllBookings();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($displayAllBookings as $booking) : ?>
-            <tr>
-                <td><?= $booking['USER_FIRSTNAME'] . " " . $booking['USER_LASTNAME'] ?></td>
-                <td><?= date('d/m/Y', strtotime($booking['BOOKING_DATE'])) ?></td>
-                <?php $bookingTime = new DateTime($booking['BOOKING_TIME']); ?>
-                <td><?= $bookingTime->format('H\hi') ?></td>
-                <?php
-                if ($booking['BOOKING_TYPE_NAME'] == "COUPE_BRUSHING") {
-                    $booking['BOOKING_TYPE_NAME'] = "Coupe + Brushing";
-                }
-                if ($booking['BOOKING_TYPE_NAME'] == "MECHES") {
-                    $booking['BOOKING_TYPE_NAME'] = "Mèches";
-                } ?>
-                <td><?= ucfirst(strtolower($booking['BOOKING_TYPE_NAME'])) ?></td>
-                <?php
-                if ($booking['HAIR_LENGTH_NAME'] == "TRES_LONG") {
-                    $booking['HAIR_LENGTH_NAME'] = "Très long";
-                }
-                ?>
-                <td><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
-                <td>
-                    <form action="" method="POST">
-                        <button name="accept" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-success" onclick="acceptBooking()">Accepter</button>
-                        <button name="refuse" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger" onclick="refuseBooking()">Refuser</button>
-                    </form>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+        <?php
+        if (count($displayAllBookings) < 1) {
+            echo "<tr>";
+            echo "<td colspan='6'>Vous n'avez pas encore de RDV.</td>";
+            echo "</tr>";
+        } else {
+            foreach ($displayAllBookings as $booking) : ?>
+                <tr>
+                    <td><?= $booking['USER_FIRSTNAME'] . " " . $booking['USER_LASTNAME'] ?></td>
+                    <td><?= date('d/m/Y', strtotime($booking['BOOKING_DATE'])) ?></td>
+                    <?php $bookingTime = new DateTime($booking['BOOKING_TIME']); ?>
+                    <td><?= $bookingTime->format('H\hi') ?></td>
+                    <?php
+                    if ($booking['BOOKING_TYPE_NAME'] == "COUPE_BRUSHING") {
+                        $booking['BOOKING_TYPE_NAME'] = "Coupe + Brushing";
+                    }
+                    if ($booking['BOOKING_TYPE_NAME'] == "MECHES") {
+                        $booking['BOOKING_TYPE_NAME'] = "Mèches";
+                    } ?>
+                    <td><?= ucfirst(strtolower($booking['BOOKING_TYPE_NAME'])) ?></td>
+                    <?php
+                    if ($booking['HAIR_LENGTH_NAME'] == "TRES_LONG") {
+                        $booking['HAIR_LENGTH_NAME'] = "Très long";
+                    }
+                    ?>
+                    <td><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
+                    <td>
+                        <form action="" method="POST">
+                            <button name="accept" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-success" onclick="acceptBooking()">Accepter</button>
+                            <button name="refuse" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-danger" onclick="refuseBooking()">Refuser</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php } ?>
     </tbody>
 </table>
 <!-- Accepter RDV -->
