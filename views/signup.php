@@ -3,8 +3,11 @@ if (isset($_SESSION['user'])) {
     header("Location: ../../Coiffadom/controllers/controller-home.php");
     exit;
 } ?>
+
+<!-- Require -->
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
+
 <!-- FORMULAIRE D'INSCRIPTION -->
 <form class="myform" method="post">
     <?= $errorform; ?>
@@ -94,6 +97,9 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 </form>
+
 <!-- INCLUSION JAVASCRIPT -->
 <script src="../../Coiffadom/assets/script/script.js"></script>
+
+<!-- Require -->
 <?php require_once "components/footer.php" ?>

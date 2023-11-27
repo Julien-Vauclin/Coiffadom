@@ -9,8 +9,10 @@
         <button id="newMessageButton" class="newMessageButton">Voir mes RDV</button>
     </a>
 </div>
-<!-- Service de coiffure -->
+
+<!-- Formulaire de prise de rendez-vous -->
 <form method="POST" action="">
+    <!-- Service de coiffure -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleType" class="form-label">Service de coiffure</label>
         <select class="form-select" id="hairstyleType" name="hairstyleType">
@@ -25,6 +27,7 @@
         </select>
         <?php echo $hairstyleTypeError; ?>
     </div>
+
     <!-- Longueur de cheveux -->
     <div class="mb-3 bookingTypeDiv">
         <label for="hairstyleLength" class="form-label">Longueur de cheveux</label>
@@ -38,13 +41,17 @@
         <?php echo $hairstyleLengthError; ?>
     </div>
     <div class="mb-3 bookingTypeDiv" style="display: flex; justify-content: space-evenly;">
+        <!-- Prix estimé -->
         <div>
             <input type="hidden" id="inputEstimatedPrice" name="inputEstimatedPrice">
-            <label for="hairstylePrice">Prix estimé : </label><input value="<?= isset($_POST['inputEstimatedPrice']) ? $_POST['inputEstimatedPrice'] : "" ?>" style="background-color: transparent; border: none;" readonly id="prix" name="hairstylePrice">
+            <label for="hairstylePrice">Prix estimé : </label>
+            <input value="<?= isset($_POST['inputEstimatedPrice']) ? $_POST['inputEstimatedPrice'] : "" ?>" style="background-color: transparent; border: none;" readonly id="prix" name="hairstylePrice">
         </div>
+        <!-- Durée estimée -->
         <div>
             <input type="hidden" id="inputEstimatedDuration" name="inputEstimatedDuration">
-            <label for="hairstyleDuration">Durée estimée : </label><input value="<?= isset($_POST['inputEstimatedDuration']) ? $_POST['inputEstimatedDuration'] : "" ?>" style="background-color: transparent; border: none;" readonly id="temps" name="hairstyleDuration">
+            <label for="hairstyleDuration">Durée estimée : </label>
+            <input value="<?= isset($_POST['inputEstimatedDuration']) ? $_POST['inputEstimatedDuration'] : "" ?>" style="background-color: transparent; border: none;" readonly id="temps" name="hairstyleDuration">
         </div>
     </div>
     <!-- Date -->
@@ -63,11 +70,11 @@
         <a href="../../Coiffadom/controllers/controller-home.php">
             <button type="button" class="returnToMyAccountButton">Retour</button>
         </a>
-        <!-- Bouton Réserver (MODAL) -->
+        <!-- Bouton Réserver (Modal Bootstrap) -->
         <button id="sentButton" class="sentButton">Réserver</button>
 
     </div>
-    <!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux -->
+    <!-- Script qui permet d'afficher le temps et le prix estimé en fonction du service de coiffure et de la longueur de cheveux (AJAX) -->
     <script>
         document.addEventListener("change", e => {
             if (e.target.classList.contains("form-select")) {
@@ -91,7 +98,7 @@
             };
         })
     </script>
-    <!-- Modal -->
+    <!-- Modal Bootstrap -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -104,7 +111,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                    <input type="submit" class="btn btn-primary" value="Valider" name="confirmBooking" onclick="handleSuccessfulBooking(event)">
+                    <input type="submit" class="btn btn-primary" value="Valider" name="confirmBooking">
                 </div>
             </div>
         </div>
@@ -115,36 +122,6 @@
         keyboard: false
     });
 </script>
-<?php
-echo "<script>
-function handleSuccessfulBooking(event) {
-    // Empêche le rechargement de la page par défaut
-    event.preventDefault();
-    // On cache la modal
-    myModal.hide();
-    // On cache le formulaire
-    var form = document.querySelector('form');
-    form.style.display = 'none';
-    // On redirige l'utilisateur vers la page d'accueil
-    setTimeout(function() {
-        window.location.href = '../../Coiffadom/controllers/controller-myaccount.php';
-    }, 3000);
-    // On affiche le décompte
-    var count = 3;
-    var countDown = document.createElement('p');
-    countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre rendez-vous a bien été enregistré ! Redirection vers Mon compte dans ' + count + ' secondes.</p>';
-    document.body.appendChild(countDown);
-    // On redirige l'utilisateur vers la page de Connexion
-    var interval = setInterval(function() {
-        count--;
-        countDown.innerHTML = '<p class=\"redirectToLoginMessage\">Votre rendez-vous a bien été enregistré ! Redirection vers Mon compte dans ' + count + ' secondes.</p>';
-        if (count === 0) {
-            clearInterval(interval);
-        }
-    }, 1000);
-};
-</script>";
-?>
 <?php
 if ($error === 0 && $_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<script>

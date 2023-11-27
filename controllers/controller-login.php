@@ -1,6 +1,9 @@
+<!-- Require -->
 <?php require_once "../config.php"; ?>
 <?php require_once "../helpers/database.php"; ?>
 <?php require_once "../models/user.php"; ?>
+
+<!-- Fonctions -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['USER_MAIL']) && isset($_POST['USER_PASSWORD'])) {
@@ -38,4 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
+<!-- Include -->
 <?php include "../views/login.php"; ?>

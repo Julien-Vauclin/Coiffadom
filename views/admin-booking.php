@@ -1,8 +1,9 @@
 <?php require_once "components/head.php" ?>
 <?php require_once "components/navbar.php" ?>
-<?php
-$displayAllBookings = BookingAdmin::getAllBookings();
-?>
+
+<?php $displayAllBookings = BookingAdmin::getAllBookings(); ?>
+
+<!-- Tableau permettant de voir tous les RDV en attente de validation -->
 <table class="table tableAdminBooking">
     <thead>
         <tr>
@@ -23,9 +24,13 @@ $displayAllBookings = BookingAdmin::getAllBookings();
         } else {
             foreach ($displayAllBookings as $booking) : ?>
                 <tr>
+                    <!-- Nom et prénom de l'utilisateur -->
                     <td><?= $booking['USER_FIRSTNAME'] . " " . $booking['USER_LASTNAME'] ?></td>
+                    <!-- Date -->
                     <td><?= date('d/m/Y', strtotime($booking['BOOKING_DATE'])) ?></td>
+                    <!-- Remise de l'heure au bon format -->
                     <?php $bookingTime = new DateTime($booking['BOOKING_TIME']); ?>
+                    <!-- Heure -->
                     <td><?= $bookingTime->format('H\hi') ?></td>
                     <?php
                     if ($booking['BOOKING_TYPE_NAME'] == "COUPE_BRUSHING") {
@@ -34,13 +39,16 @@ $displayAllBookings = BookingAdmin::getAllBookings();
                     if ($booking['BOOKING_TYPE_NAME'] == "MECHES") {
                         $booking['BOOKING_TYPE_NAME'] = "Mèches";
                     } ?>
+                    <!-- Prestation demandée -->
                     <td><?= ucfirst(strtolower($booking['BOOKING_TYPE_NAME'])) ?></td>
                     <?php
                     if ($booking['HAIR_LENGTH_NAME'] == "TRES_LONG") {
                         $booking['HAIR_LENGTH_NAME'] = "Très long";
                     }
                     ?>
+                    <!-- Longueur des cheveux -->
                     <td><?= ucfirst(strtolower($booking['HAIR_LENGTH_NAME'])) ?></td>
+                    <!-- Boutons "Accepter" et "Refuser" -->
                     <td>
                         <form action="" method="POST">
                             <button name="accept" value="<?= $booking['BOOKING_ID'] ?>" class="btn btn-success" onclick="acceptBooking()">Accepter</button>
@@ -84,4 +92,5 @@ $displayAllBookings = BookingAdmin::getAllBookings();
         }
     }
 </script>
+<!-- Require -->
 <?php require_once "components/footer.php" ?>

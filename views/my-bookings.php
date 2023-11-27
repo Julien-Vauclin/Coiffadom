@@ -74,7 +74,8 @@
                         echo "<td></td>";
                     }
                     ?>
-                    <!-- Modal -->
+
+                    <!-- Modal Bootstrap -->
                     <div class="modal fade" id="modalCancelBooking-<?= $booking['BOOKING_ID'] ?>" tabindex="-1" aria-labelledby="modalCancelBookingLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -94,6 +95,7 @@
                             </div>
                         </div>
                     </div>
+
                 <?php endforeach; ?>
             <?php } ?>
     </tbody>

@@ -10,7 +10,8 @@ class BookingAdmin
     private string $BOOKING_COST;
     private string $HAIR_LENGTH_ID;
     private string $BOOKING_STATUS_ID;
-    // Voir toutes les reservations
+
+    // Fonction qui permet de voir tous les rendez-vous (Pour l'admin seulement)
     public static function getAllBookings()
     {
         try {
@@ -35,6 +36,7 @@ class BookingAdmin
             return false;
         }
     }
+
     // Voir les réservations en fonction de l'utilisateur
     public static function getBookingByUser($id)
     {
@@ -100,7 +102,8 @@ class BookingAdmin
             return false;
         }
     }
-    // Annuler reservation
+
+    // Fonction qui permet d'annuler reservation
     public static function cancelBooking($id)
     {
         try {
